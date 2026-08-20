@@ -1,0 +1,256 @@
+/* =========================================================
+   STYLE.CSS — All the colors and spacing for the whole site
+   live in this ONE file. Change something here and every
+   page updates at once.
+   ========================================================= */
+
+/* ---- 1. COLORS -----------------------------------------
+   Change these six values to re-theme the entire site.
+   Try a color picker: https://coolors.co or your browser's
+   built-in color picker in dev tools.
+   ---------------------------------------------------------- */
+:root {
+  --color-bg: #ffffff;        /* page background */
+  --color-text: #222222;      /* main text color */
+  --color-primary: #2b6cb0;   /* header, links, buttons */
+  --color-primary-dark: #1a4971; /* hover state for links/buttons */
+  --color-accent: #f6ad55;    /* small highlights, e.g. active nav link */
+  --color-border: #e2e8f0;    /* light lines / card borders */
+}
+
+/* ---- 2. RESET --------------------------------------------
+   Removes default browser spacing so layouts are predictable.
+   ---------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* ---- 3. LAYOUT HELPERS ------------------------------------
+   .container keeps content from stretching edge-to-edge on
+   wide screens.
+   ---------------------------------------------------------- */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 40px 0;
+}
+
+/* ---- 4. HEADER + NAV MENU ---------------------------------- */
+.site-header {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.site-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.site-title:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Nav links list */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-menu a {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.nav-menu a:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.nav-menu a.active {
+  border-bottom: 3px solid var(--color-accent);
+}
+
+/* Hamburger button — hidden on wide screens, shown on narrow ones */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.menu-toggle span {
+  width: 26px;
+  height: 3px;
+  background-color: #ffffff;
+  display: block;
+}
+
+/* ---- 5. SMALL SCREENS (phones) -----------------------------
+   Below 700px wide: hide the nav links and show the hamburger
+   button instead. Clicking it adds/removes the "open" class
+   via js/script.js.
+   ---------------------------------------------------------- */
+@media (max-width: 700px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    background-color: var(--color-primary-dark);
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-menu li {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 14px 20px;
+  }
+
+  .site-header .container {
+    flex-wrap: wrap;
+  }
+}
+
+/* ---- 6. HERO SECTION (big intro block on the homepage) ----- */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* Button-style link, e.g. "See my work" */
+.button {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: var(--color-primary-dark);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ---- 7. CARDS (used on the Projects page) ------------------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+}
+
+.card .tags {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--color-primary-dark);
+}
+
+/* ---- 8. SIMPLE FORM (Contact page) --------------------------- */
+form {
+  max-width: 500px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+form .button {
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* ---- 9. FOOTER ------------------------------------------------ */
+.site-footer {
+  text-align: center;
+  padding: 24px 0;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
