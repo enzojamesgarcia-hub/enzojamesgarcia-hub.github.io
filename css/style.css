@@ -10,12 +10,12 @@
    built-in color picker in dev tools.
    ---------------------------------------------------------- */
 :root {
-  --color-bg: #ffffff;        /* page background */
-  --color-text: #222222;      /* main text color */
-  --color-primary: #2b6cb0;   /* header, links, buttons */
-  --color-primary-dark: #1a4971; /* hover state for links/buttons */
-  --color-accent: #f6ad55;    /* small highlights, e.g. active nav link */
-  --color-border: #e2e8f0;    /* light lines / card borders */
+  --color-bg: #505051;        /* page background */
+  --color-text: #fcc54f;      /* main text color */
+  --color-primary: #f5c185;   /* header, links, buttons */
+  --color-primary-dark: #4dcb87; /* hover state for links/buttons */
+  --color-accent: #fe0000;    /* small highlights, e.g. active nav link */
+  --color-border: #43436c;    /* light lines / card borders */
 }
 
 /* ---- 2. RESET --------------------------------------------
