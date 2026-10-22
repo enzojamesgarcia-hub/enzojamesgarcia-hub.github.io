@@ -23,30 +23,27 @@
         <li><a href="contact.html">Contact</a></li>
         <li><a href="final-project.html" class="active">Final Project</a></li>
       </ul>
-      <button class="site-admin-toggle" type="button">Edit Mode</button>
     </div>
   </header>
 
   <main>
     <section>
       <div class="container">
-        <h1 data-editable="finalProject.title">My Final Project</h1>
-        <p data-editable="finalProject.intro">Copy the whole &lt;div class="card"&gt;...&lt;/div&gt; block below to add another project card.</p>
+        <h1>My Final Project</h1>
+        <p>Copy the whole &lt;div class="card"&gt;...&lt;/div&gt; block below to add another project card.</p>
 
         <div class="card-grid">
-          <article class="card">
-            <h3 data-editable="finalProject.card.title">Final Project</h3>
-            <p data-editable="finalProject.card.description">My final project: The RRV.</p>
-            <iframe
-              data-editable="finalProject.card.frame"
-              data-editable-type="url"
-              src="https://docs.google.com/document/d/e/2PACX-1vTZT1empAkC4NqCclVHcaI1Kx-ZJYC5v-2CxJis2YKiKohhi5BiMjTpKnHBl7Wf9OsDrbs_9S224pYi/pub?embedded=true"
+          <div class="card">
+            <h3>Final Project</h3>
+            <p>My final project: The RRV.</p>
+
+            <iframe src="https://docs.google.com/document/d/e/2PACX-1vTZT1empAkC4NqCclVHcaI1Kx-ZJYC5v-2CxJis2YKiKohhi5BiMjTpKnHBl7Wf9OsDrbs_9S224pYi/pub?embedded=true"
               width="100%"
               height="800"
               style="border:1px solid #ccc;">
             </iframe>
-            <p class="tags" data-editable="finalProject.card.tags">HTML · CSS · JavaScript</p>
-          </article>
+            <p class="tags">HTML · CSS · JavaScript</p>
+          </div>
         </div>
       </div>
     </section>
@@ -57,20 +54,6 @@
       <p>&copy; 2026 Enzo Garcia. Built with HTML &amp; CSS.</p>
     </div>
   </footer>
-
-  <div id="site-editor-modal" class="site-editor-modal hidden" aria-hidden="true">
-    <div class="site-editor-panel">
-      <div class="site-editor-header">
-        <h2>Portfolio Editor</h2>
-        <button type="button" data-close-editor class="secondary-button">Close</button>
-      </div>
-      <form id="site-editor-form"></form>
-      <div class="site-editor-actions">
-        <button type="button" data-reset-editor class="secondary-button">Reset</button>
-        <button type="button" data-save-editor class="primary-button">Save</button>
-      </div>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
