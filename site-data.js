@@ -12,13 +12,13 @@ const FALLBACK_CONTENT = {
       id: "Watchinng Artemis II",
       title: "Watchinng Artemis II",
       summary: "I recently got to watch the launch of the ARTEMIS II mission on the SLS rocket. A once in a lifetime experience, I still remember the trembling ground.",
-      details: "Attending the Artemis II Laucnh and how it gave me new perspective, litteraly.",
-      longDescription: ",
+      details: "Attending the Artemis II launch and how it gave me a new perspective, literally.",
+      longDescription: "I recently got to watch the launch of the Artemis II mission on the SLS rocket. It was a once-in-a-lifetime experience, and I still remember the trembling ground beneath me as the rocket lifted off.",
       tags: ["TRIP", "EVENT", "INSPIRATION"],
       image: "Assets/Images/home/artemis-ii.jpg",
       pdf: "",
       link: "",
-      highlights: ["Club development and coordination", "Inspiring Experience", "Rocketry"],
+      highlights: ["Launch experience", "SLS rocket", "Once-in-a-lifetime memory"],
       gallery: []
     },
     {
@@ -31,7 +31,7 @@ const FALLBACK_CONTENT = {
       image: "",
       pdf: "",
       link: "",
-      highlights: ["IWORDS", "WIORDS", "WORDS"],
+      highlights: ["Interactive layout", "Flexible content updates", "User-friendly presentation"],
       gallery: []
     },
     {
@@ -39,7 +39,7 @@ const FALLBACK_CONTENT = {
       title: "Project Three",
       summary: "A presentation-style page for a class project, concept, or final deliverable.",
       details: "This format makes it easy to add images, links, and research summaries in one place.",
-      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media, and a clean, readable layout for classroom or presentation work.",
+      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media, and research in a clean, focused layout.",
       tags: ["Portfolio", "HTML", "Presentation"],
       image: "",
       pdf: "",
