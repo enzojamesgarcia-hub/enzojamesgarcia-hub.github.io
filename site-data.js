@@ -9,9 +9,9 @@ const FALLBACK_CONTENT = {
   },
   projects: [
     {
-      id: "Watchinng Artemis II",
-      title: "Watchinng Artemis II",
-      summary: "I recently got to watch the launch of the ARTEMIS II mission on the SLS rocket. A once in a lifetime experience, I still remember the trembling ground.",
+      id: "Attending Artemis II",
+      title: "Attending Artemis II",
+      summary: "I recently got to attend the launch of the ARTEMIS II mission on the SLS rocket. A once in a lifetime experience, I still remember the trembling ground.",
       details: "Attending the Artemis II launch and how it gave me a new perspective, literally.",
       longDescription: "I recently got to watch the launch of the Artemis II mission on the SLS rocket. It was a once-in-a-lifetime experience, and I still remember the trembling ground beneath me as the rocket lifted off.",
       tags: ["TRIP", "EVENT", "INSPIRATION"],
