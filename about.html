@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — Enzo Garcia</title>
-  <meta name="description" content="About Enzo Garcia">
+  <title>Enzo Garcia</title>
+  <meta name="description" content="Portfolio site for Enzo Garcia">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -17,8 +17,8 @@
         <span></span>
       </button>
       <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="final-project.html">Final Project</a></li>
@@ -27,19 +27,51 @@
   </header>
 
   <main>
-    <section class="section page-header">
-      <div class="container narrow-layout">
-        <p class="eyebrow">Who I am</p>
-        <h1>About Me</h1>
-        <p id="about-copy"></p>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Student designer · developer</p>
+          <h1>Hi, I'm Enzo Garcia.</h1>
+          <p class="hero-text">I build clean, responsive web experiences that are simple, modern, and easy to explore.</p>
+          <div class="hero-actions">
+            <a href="projects.html" class="button">View Projects</a>
+            <a href="contact.html" class="button secondary">Contact Me</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h2>What I focus on</h2>
+          <ul class="feature-list">
+            <li>Responsive design</li>
+            <li>Clear visual storytelling</li>
+            <li>Portfolio and project presentation</li>
+            <li>Simple, polished interfaces</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Featured work</p>
+          <h2>Recent projects</h2>
+        </div>
+        <div id="featured-projects" class="card-grid"></div>
       </div>
     </section>
 
     <section class="section alt-section">
-      <div class="container narrow-layout">
+      <div class="container split-layout">
+        <div>
+          <p class="eyebrow">About me</p>
+          <h2>Designing with purpose.</h2>
+          <p id="home-about-copy"></p>
+        </div>
+
         <div class="mini-panel">
-          <h2>Skills</h2>
-          <ul id="skills-list" class="chip-list"></ul>
+          <h3>Skills</h3>
+          <ul id="home-skills" class="chip-list"></ul>
         </div>
       </div>
     </section>
@@ -55,3 +87,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+

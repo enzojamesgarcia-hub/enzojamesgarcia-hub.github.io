@@ -9,31 +9,43 @@ const FALLBACK_CONTENT = {
   },
   projects: [
     {
+      id: "project-one",
       title: "Project One",
       summary: "A clean landing page concept designed to highlight a personal brand or portfolio story.",
       details: "This project focuses on layout, hierarchy, and polished visual spacing.",
+      longDescription: "Project One is a polished front-end concept created to present a personal brand or portfolio in a modern, easy-to-scan way. It emphasizes strong hierarchy, comfortable spacing, and readable content blocks so the work feels professional without being overwhelming.",
       tags: ["HTML", "CSS", "Design"],
       image: "",
       pdf: "",
-      link: ""
+      link: "",
+      highlights: ["Modern landing page layout", "Clear visual hierarchy", "Responsive design"],
+      gallery: []
     },
     {
+      id: "project-two",
       title: "Project Two",
       summary: "An interactive prototype for showcasing work, hobbies, or creative ideas in a more engaging way.",
       details: "Built to be easy to update whenever more content or media gets added.",
+      longDescription: "Project Two brings more interaction into the portfolio by giving the project a richer, more dynamic presentation. It is built to be easy to maintain and gives you room to add additional content as your work expands.",
       tags: ["JavaScript", "UI", "Responsive"],
       image: "",
       pdf: "",
-      link: ""
+      link: "",
+      highlights: ["Interactive design elements", "Easy content updates", "Responsive layout"],
+      gallery: []
     },
     {
+      id: "project-three",
       title: "Project Three",
       summary: "A presentation-style page for a class project, concept, or final deliverable.",
       details: "This format makes it easy to add images, links, and research summaries in one place.",
+      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media, and callouts without becoming cluttered.",
       tags: ["Portfolio", "HTML", "Presentation"],
       image: "",
       pdf: "",
-      link: ""
+      link: "",
+      highlights: ["Presentation layout", "Supports media and text", "Great for class projects"],
+      gallery: []
     }
   ],
   contact: {
@@ -44,6 +56,13 @@ const FALLBACK_CONTENT = {
 };
 
 const content = window.siteContent || FALLBACK_CONTENT;
+
+function buildProjectLink(project) {
+  if (project.id) {
+    return `project.html?id=${encodeURIComponent(project.id)}`;
+  }
+  return project.link || "#";
+}
 
 function createProjectCard(project) {
   const media = project.image
@@ -56,9 +75,10 @@ function createProjectCard(project) {
     ? `<a class="secondary-button" href="${project.pdf}" target="_blank" rel="noreferrer">View PDF</a>`
     : "";
 
-  const linkButton = project.link
-    ? `<a class="secondary-button" href="${project.link}" target="_blank" rel="noreferrer">Open</a>`
-    : "";
+  const detailLink = buildProjectLink(project);
+  const primaryButton = project.id
+    ? `<a class="button" href="${detailLink}">More info</a>`
+    : `<a class="button" href="${project.link || "#"}" target="_blank" rel="noreferrer">Open</a>`;
 
   return `
     <article class="project-card">
@@ -69,8 +89,8 @@ function createProjectCard(project) {
         ${project.details ? `<p class="project-note">${project.details}</p>` : ""}
         <div class="tag-row">${tags}</div>
         <div class="project-actions">
+          ${primaryButton}
           ${pdfButton}
-          ${linkButton}
         </div>
       </div>
     </article>
@@ -125,6 +145,55 @@ function renderContact() {
   `;
 }
 
+function renderProjectDetail() {
+  const container = document.querySelector("#project-detail");
+  if (!container) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const projectId = params.get("id");
+  const project = content.projects.find((item) => item.id === projectId) || content.projects[0];
+
+  const media = project.image
+    ? `<div class="project-detail-media"><img src="${project.image}" alt="${project.title}" /></div>`
+    : "";
+
+  const tags = project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
+  const highlights = (project.highlights || []).map((item) => `<li>${item}</li>`).join("");
+  const gallery = (project.gallery || []).map((item) => `<img src="${item}" alt="${project.title} gallery item" />`).join("");
+  const pdfLink = project.pdf
+    ? `<a class="button" href="${project.pdf}" target="_blank" rel="noreferrer">Open PDF</a>`
+    : "";
+	const externalLink = project.link
+	  ? `<a class="secondary-button" href="${project.link}" target="_blank" rel="noreferrer">Open external link</a>`
+	  : "";
+
+  container.innerHTML = `
+    <article class="detail-page-card">
+      <div class="detail-page-header">
+        <p class="eyebrow">Project detail</p>
+        <h1>${project.title}</h1>
+      </div>
+
+      ${media}
+
+      <div class="detail-copy">
+        <p>${project.longDescription || project.summary}</p>
+        <div class="tag-row">${tags}</div>
+
+        <div class="project-actions detail-actions">
+          ${pdfLink}
+          ${externalLink}
+          <a class="secondary-button" href="projects.html">Back to projects</a>
+        </div>
+
+        ${highlights ? `<div class="detail-panel"><h3>Highlights</h3><ul class="feature-list">${highlights}</ul></div>` : ""}
+      </div>
+
+      ${gallery ? `<div class="gallery-grid">${gallery}</div>` : ""}
+    </article>
+  `;
+}
+
 function setupMobileNav() {
   const menuToggle = document.querySelector(".menu-toggle");
   const navMenu = document.querySelector(".nav-menu");
@@ -142,4 +211,5 @@ document.addEventListener("DOMContentLoaded", () => {
   renderFeaturedProjects();
   renderAbout();
   renderContact();
+  renderProjectDetail();
 });
