@@ -4,7 +4,7 @@ const FALLBACK_CONTENT = {
     intro: "I’m a CAD-certified designer and maker with hands-on experience in machining, robotics, and rapid prototyping."
   },
   about: {
-    blurb: "I’m a CAD-certified Fusion user with experience in machining, including 3D printing, laser cutting, and CNC work. I also serve as a seasoned FRC robotics team leader, helping turn ideas into working systems.",
+    blurb: "I’m a CAD-certified Fusion user with experience in machining, including 3D printing, laser cutting, and CNC work. I also serve as a seasoned FRC robotics team leader, helping turn ide[...]
     skills: [
       "CAD Certified (Fusion)",
       "Experienced in machining (3D printers, laser cutting, CNC)",
@@ -17,9 +17,9 @@ const FALLBACK_CONTENT = {
       title: "Attending Artemis II",
       summary: "I recently got to attend the launch of the ARTEMIS II mission on the SLS rocket. A once in a lifetime experience, I still remember the trembling ground.",
       details: "Attending the Artemis II launch and how it gave me a new perspective, literally.",
-      longDescription: "It all started during that first discussion with the other members of the newly founded Aerospace Club. While planning out the future of our club, we were certain in our new main competition (ARC), but we wanted to distinguish our club from the rest. Many clubs die out after their founding members leave, so we wanted a mission that would create a lasting legacy. I proposed the idea of attending a rocket launch at Cape Canaveral. It didn’t take long for us to begin planning the logistics of the trip late into the fall. Unfortunately, we weren't able to pinpoint a launch to attend for quite some time, but the excitement and the preparation helped define what this club could become. Later early into spring, we saw Artemis II had been delayed a second time, and from our experience in watching launches and how they are scheduled, we thought that this would be our best chance. Third times the charm. Little did we know how significant this launch would feel in person. As we setup our telescope and viewing equipment, we were approached by people from various places and backgrounds. One group had come from as far as India. Seeing so many unique people and hearing their stories was truly its own experience. I feel the highlight of the launch was that short prelude, meeting all those people, and sharing in the experience with them. Later, standing near the pad and feeling the vibrations, hearing the power, and seeing the rocket rise cemented this experience as unforgettable. It reshaped the way I think about aerospace and the kind of work I want to do in the future.",
+      longDescription: "It all started during that first discussion with the other members of the newly founded Aerospace Club. While planning out the future of our club, we were certain in our ne[...]
       tags: ["Rocketry", "EVENT", "INSPIRATION"],
-      image: "Assets/Images/home/artemis-ii.jpg",
+      image: "Assets/Images/home/artemis-ii-1.jpg",
       video: "",
       pdf: "",
       link: "",
@@ -29,9 +29,9 @@ const FALLBACK_CONTENT = {
         "Once-in-a-lifetime experience"
       ],
       gallery: [
-        "Assets/Images/home/artemis-ii.jpg",
-        "",
-        ""
+        "Assets/Images/home/artemis-ii-1.jpg",
+        "Assets/Images/home/artemis-ii-2.jpg",
+        "Assets/Images/home/artemis-ii-3.jpg"
       ]
     },
     {
@@ -39,7 +39,7 @@ const FALLBACK_CONTENT = {
       title: "Project Two",
       summary: "An interactive prototype for showcasing work, hobbies, or creative ideas in a more engaging way.",
       details: "Built to be easy to update whenever more content or media gets added.",
-      longDescription: "Project Two brings more interaction into the portfolio by giving the project a richer, more dynamic presentation. It is built to be easy to maintain and gives you room to add images, notes, and supporting content without losing clarity.",
+      longDescription: "Project Two brings more interaction into the portfolio by giving the project a richer, more dynamic presentation. It is built to be easy to maintain and gives you room to a[...]
       tags: ["JavaScript", "UI", "Responsive"],
       image: "",
       video: "",
@@ -53,7 +53,7 @@ const FALLBACK_CONTENT = {
       title: "Project Three",
       summary: "A presentation-style page for a class project, concept, or final deliverable.",
       details: "This format makes it easy to add images, links, and research summaries in one place.",
-      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media, and more polished presentation when a deeper project story matters.",
+      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media[...]
       tags: ["Portfolio", "HTML", "Presentation"],
       image: "",
       video: "",
