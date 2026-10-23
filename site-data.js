@@ -70,7 +70,10 @@ const FALLBACK_CONTENT = {
   }
 };
 
-const content = window.siteContent || FALLBACK_CONTENT;
+window.FALLBACK_CONTENT = FALLBACK_CONTENT;
+window.siteContent = window.siteContent || FALLBACK_CONTENT;
+
+const content = window.siteContent;
 
 function buildProjectLink(project) {
   if (project.id) {
