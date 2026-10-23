@@ -4,65 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects — Enzo Garcia</title>
+  <meta name="description" content="Project gallery for Enzo Garcia">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
   <header class="site-header">
-    <div class="container">
+    <div class="container nav-wrap">
       <a href="index.html" class="site-title">Enzo Garcia</a>
       <button class="menu-toggle" aria-label="Toggle menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html" class="active">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="final-project.html">Final Project</a></li>
-        </ul>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="final-project.html">Final Project</a></li>
+      </ul>
     </div>
   </header>
 
   <main>
-    <section>
+    <section class="section page-header">
       <div class="container">
+        <p class="eyebrow">Portfolio</p>
         <h1>My Projects</h1>
-        <p>Copy the whole &lt;div class="card"&gt;...&lt;/div&gt; block below to add another project card.</p>
+        <p class="page-intro">Each project card can include a title, summary, tags, image, and PDF. Update the content in one place to keep the site fast to maintain.</p>
+      </div>
+    </section>
 
-        <div class="card-grid">
-
-          <div class="card">
-            <h3>Project One</h3>
-            <p>Short description of what this project does and what you learned building it.</p>
-            <p class="tags">HTML · CSS · JavaScript</p>
-          </div>
-
-          <div class="card">
-            <h3>Project Two</h3>
-            <p>Short description of what this project does and what you learned building it.</p>
-            <p class="tags">HTML · CSS</p>
-          </div>
-
-          <div class="card">
-            <h3>Project Three</h3>
-            <p>Short description of what this project does and what you learned building it.</p>
-            <p class="tags">Python</p>
-          </div>
-
-        </div>
+    <section class="section">
+      <div class="container">
+        <div id="projects-grid" class="card-grid"></div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2026 Your Name. Built with HTML &amp; CSS.</p>
+      <p>&copy; 2026 Enzo Garcia. Built with HTML, CSS, and JavaScript.</p>
     </div>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="site-data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
