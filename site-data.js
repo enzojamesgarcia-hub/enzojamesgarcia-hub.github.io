@@ -4,7 +4,7 @@ const FALLBACK_CONTENT = {
     intro: "I’m a CAD-certified designer and maker with hands-on experience in machining, robotics, and rapid prototyping."
   },
   about: {
-    blurb: "I’m a CAD-certified Fusion user with experience in machining, including 3D printing, laser cutting, and CNC work. I also serve as a seasoned FRC robotics team leader, helping turn ide[...]
+    blurb: "I’m a CAD-certified Fusion user with experience in machining, including 3D printing, laser cutting, and CNC work. I also serve as a seasoned FRC robotics team leader, helping turn ideas into real, buildable systems.",
     skills: [
       "CAD Certified (Fusion)",
       "Experienced in machining (3D printers, laser cutting, CNC)",
@@ -17,7 +17,7 @@ const FALLBACK_CONTENT = {
       title: "Attending Artemis II",
       summary: "I recently got to attend the launch of the ARTEMIS II mission on the SLS rocket. A once in a lifetime experience, I still remember the trembling ground.",
       details: "Attending the Artemis II launch and how it gave me a new perspective, literally.",
-      longDescription: "It all started during that first discussion with the other members of the newly founded Aerospace Club. While planning out the future of our club, we were certain in our ne[...]
+      longDescription: "It all started during that first discussion with the other members of the newly founded Aerospace Club. While planning out the future of our club, we were certain in our excitement and curiosity for the future of space exploration. The launch of Artemis II gave us a chance to see that future in motion.",
       tags: ["Rocketry", "EVENT", "INSPIRATION"],
       image: "Assets/Images/home/artemis-ii-1.jpg",
       video: "",
@@ -39,7 +39,7 @@ const FALLBACK_CONTENT = {
       title: "Project Two",
       summary: "An interactive prototype for showcasing work, hobbies, or creative ideas in a more engaging way.",
       details: "Built to be easy to update whenever more content or media gets added.",
-      longDescription: "Project Two brings more interaction into the portfolio by giving the project a richer, more dynamic presentation. It is built to be easy to maintain and gives you room to a[...]
+      longDescription: "Project Two brings more interaction into the portfolio by giving the project a richer, more dynamic presentation. It is built to be easy to maintain and gives you room to add work without restructuring the page.",
       tags: ["JavaScript", "UI", "Responsive"],
       image: "",
       video: "",
@@ -53,7 +53,7 @@ const FALLBACK_CONTENT = {
       title: "Project Three",
       summary: "A presentation-style page for a class project, concept, or final deliverable.",
       details: "This format makes it easy to add images, links, and research summaries in one place.",
-      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media[...]
+      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media, and project context in one clean layout.",
       tags: ["Portfolio", "HTML", "Presentation"],
       image: "",
       video: "",
@@ -73,21 +73,23 @@ const FALLBACK_CONTENT = {
 window.FALLBACK_CONTENT = FALLBACK_CONTENT;
 window.siteContent = window.siteContent || FALLBACK_CONTENT;
 
-const content = window.siteContent;
+const content = window.siteContent || FALLBACK_CONTENT;
 
 function buildProjectLink(project) {
-  if (project.id) {
+  if (project && project.id) {
     return `project.html?id=${encodeURIComponent(project.id)}`;
   }
-  return project.link || "#";
+  return project && project.link ? project.link : "#";
 }
 
 function createProjectCard(project) {
+  if (!project) return "";
+
   const media = project.image
     ? `<div class="project-media"><img src="${project.image}" alt="${project.title}" /></div>`
     : "";
 
-  const tags = project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
+  const tags = (project.tags || []).map((tag) => `<span class="tag">${tag}</span>`).join("");
 
   const pdfButton = project.pdf
     ? `<a class="secondary-button" href="${project.pdf}" target="_blank" rel="noreferrer">View PDF</a>`
@@ -115,51 +117,58 @@ function createProjectCard(project) {
   `;
 }
 
+function getProjects() {
+  return Array.isArray(content.projects) ? content.projects : FALLBACK_CONTENT.projects;
+}
+
 function renderProjects() {
   const target = document.querySelector("#projects-grid");
   if (!target) return;
 
-  target.innerHTML = content.projects.map(createProjectCard).join("");
+  target.innerHTML = getProjects().map(createProjectCard).join("");
 }
 
 function renderFeaturedProjects() {
   const target = document.querySelector("#featured-projects");
   if (!target) return;
 
-  const featured = content.projects.slice(0, 3);
+  const featured = getProjects().slice(0, 3);
   target.innerHTML = featured.map(createProjectCard).join("");
 }
 
 function renderAbout() {
+  const aboutData = content.about || FALLBACK_CONTENT.about;
+
   const aboutTarget = document.querySelector("#about-copy");
   if (aboutTarget) {
-    aboutTarget.textContent = content.about.blurb;
+    aboutTarget.textContent = aboutData.blurb;
   }
 
   const skillList = document.querySelector("#skills-list");
   if (skillList) {
-    skillList.innerHTML = content.about.skills.map((skill) => `<li>${skill}</li>`).join("");
+    skillList.innerHTML = (aboutData.skills || []).map((skill) => `<li>${skill}</li>`).join("");
   }
 
   const homeAbout = document.querySelector("#home-about-copy");
   if (homeAbout) {
-    homeAbout.textContent = content.about.blurb;
+    homeAbout.textContent = aboutData.blurb;
   }
 
   const homeSkills = document.querySelector("#home-skills");
   if (homeSkills) {
-    homeSkills.innerHTML = content.about.skills.map((skill) => `<li>${skill}</li>`).join("");
+    homeSkills.innerHTML = (aboutData.skills || []).map((skill) => `<li>${skill}</li>`).join("");
   }
 }
 
 function renderContact() {
+  const contactData = content.contact || FALLBACK_CONTENT.contact;
   const list = document.querySelector("#contact-list");
   if (!list) return;
 
   list.innerHTML = `
-    <li>Email: <a href="mailto:${content.contact.email}">${content.contact.email}</a></li>
-    <li>GitHub: <a href="${content.contact.github}" target="_blank" rel="noreferrer">${content.contact.github}</a></li>
-    <li>Location: ${content.contact.location}</li>
+    <li>Email: <a href="mailto:${contactData.email}">${contactData.email}</a></li>
+    <li>GitHub: <a href="${contactData.github}" target="_blank" rel="noreferrer">${contactData.github}</a></li>
+    <li>Location: ${contactData.location}</li>
   `;
 }
 
@@ -193,7 +202,10 @@ function renderProjectDetail() {
 
   const params = new URLSearchParams(window.location.search);
   const projectId = params.get("id");
-  const project = content.projects.find((item) => item.id === projectId) || content.projects[0];
+  const projects = getProjects();
+  const project = projects.find((item) => item.id === projectId) || projects[0];
+
+  if (!project) return;
 
   const primaryMedia = project.video
     ? `<div class="project-detail-media"><video src="${project.video}" controls playsinline aria-label="${project.title} video"></video></div>`
@@ -201,7 +213,7 @@ function renderProjectDetail() {
       ? `<div class="project-detail-media"><img src="${project.image}" alt="${project.title}" /></div>`
       : "";
 
-  const tags = project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
+  const tags = (project.tags || []).map((tag) => `<span class="tag">${tag}</span>`).join("");
   const highlights = (project.highlights || []).map((item) => `<li>${item}</li>`).join("");
   const gallery = (project.gallery || [])
     .map((item) => renderMediaItem(item, project.title))
@@ -259,3 +271,21 @@ document.addEventListener("DOMContentLoaded", () => {
   renderContact();
   renderProjectDetail();
 });
+
+window.siteContent = content;
+window.FALLBACK_CONTENT = FALLBACK_CONTENT;
+
+window.renderProjects = renderProjects;
+window.renderFeaturedProjects = renderFeaturedProjects;
+window.renderAbout = renderAbout;
+window.renderContact = renderContact;
+window.renderProjectDetail = renderProjectDetail;
+
+if (document.readyState !== "loading") {
+  setupMobileNav();
+  renderProjects();
+  renderFeaturedProjects();
+  renderAbout();
+  renderContact();
+  renderProjectDetail();
+}

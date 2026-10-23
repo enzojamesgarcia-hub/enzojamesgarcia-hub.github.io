@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function createProjectCard(project) {
+    if (!project) return "";
+
     const media = project.image
       ? `<div class="project-media"><img src="${project.image}" alt="${project.title}" /></div>`
       : "";
@@ -51,13 +53,15 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderProjects() {
     const target = document.querySelector("#projects-grid");
     if (!target) return;
-    target.innerHTML = (window.siteContent || window.FALLBACK_CONTENT || { projects: [] }).projects.map(createProjectCard).join("");
+    const content = window.siteContent || window.FALLBACK_CONTENT || { projects: [] };
+    target.innerHTML = (Array.isArray(content.projects) ? content.projects : []).map(createProjectCard).join("");
   }
 
   function renderFeaturedProjects() {
     const target = document.querySelector("#featured-projects");
     if (!target) return;
-    const featured = (window.siteContent || window.FALLBACK_CONTENT || { projects: [] }).projects.slice(0, 3);
+    const content = window.siteContent || window.FALLBACK_CONTENT || { projects: [] };
+    const featured = (Array.isArray(content.projects) ? content.projects : []).slice(0, 3);
     target.innerHTML = featured.map(createProjectCard).join("");
   }
 
@@ -66,22 +70,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const aboutTarget = document.querySelector("#about-copy");
     if (aboutTarget) {
-      aboutTarget.textContent = content.about.blurb;
+      aboutTarget.textContent = (content.about || {}).blurb || "";
     }
 
     const skillList = document.querySelector("#skills-list");
     if (skillList) {
-      skillList.innerHTML = (content.about.skills || []).map((skill) => `<li>${skill}</li>`).join("");
+      skillList.innerHTML = ((content.about || {}).skills || []).map((skill) => `<li>${skill}</li>`).join("");
     }
 
     const homeAbout = document.querySelector("#home-about-copy");
     if (homeAbout) {
-      homeAbout.textContent = content.about.blurb;
+      homeAbout.textContent = (content.about || {}).blurb || "";
     }
 
     const homeSkills = document.querySelector("#home-skills");
     if (homeSkills) {
-      homeSkills.innerHTML = (content.about.skills || []).map((skill) => `<li>${skill}</li>`).join("");
+      homeSkills.innerHTML = ((content.about || {}).skills || []).map((skill) => `<li>${skill}</li>`).join("");
     }
   }
 
@@ -91,9 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!list) return;
 
     list.innerHTML = `
-      <li>Email: <a href="mailto:${content.contact.email}">${content.contact.email}</a></li>
-      <li>GitHub: <a href="${content.contact.github}" target="_blank" rel="noreferrer">${content.contact.github}</a></li>
-      <li>Location: ${content.contact.location}</li>
+      <li>Email: <a href="mailto:${(content.contact || {}).email}">${(content.contact || {}).email}</a></li>
+      <li>GitHub: <a href="${(content.contact || {}).github}" target="_blank" rel="noreferrer">${(content.contact || {}).github}</a></li>
+      <li>Location: ${(content.contact || {}).location}</li>
     `;
   }
 
@@ -127,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const content = window.siteContent || window.FALLBACK_CONTENT || { projects: [] };
     const params = new URLSearchParams(window.location.search);
     const projectId = params.get("id");
-    const project = content.projects.find((item) => item.id === projectId) || content.projects[0];
+    const project = (Array.isArray(content.projects) ? content.projects : []).find((item) => item.id === projectId) || (Array.isArray(content.projects) ? content.projects[0] : null);
 
     if (!project) return;
 
