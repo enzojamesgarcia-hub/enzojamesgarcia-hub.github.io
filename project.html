@@ -1,215 +1,52 @@
-// script.js — mobile nav + portfolio content rendering
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details — Enzo Garcia</title>
+  <meta name="description" content="Detailed information about a project">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="site-title">Enzo Garcia</a>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="final-project.html">Final Project</a></li>
+      </ul>
+    </div>
+  </header>
 
-const menuToggle = document.querySelector(".menu-toggle");
-const navMenu = document.querySelector(".nav-menu");
-
-if (menuToggle && navMenu) {
-  menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("open");
-  });
-}
-
-const FALLBACK_CONTENT = {
-  profile: {
-    name: "Enzo Garcia",
-    intro: "I build clean, responsive web experiences and like turning simple ideas into polished, easy-to-use sites."
-  },
-  about: {
-    blurb: "I'm a student and aspiring developer based in South Florida. I enjoy learning how to turn ideas into polished web experiences that feel simple, modern, and easy to navigate.",
-    skills: ["HTML & CSS", "JavaScript", "Responsive design", "GitHub Pages", "UI/UX basics", "Project storytelling"]
-  },
-  projects: [
-    {
-      id: "project-one",
-      title: "Project One",
-      summary: "A clean landing page concept designed to highlight a personal brand or portfolio story.",
-      details: "This project focuses on layout, hierarchy, and polished visual spacing.",
-      longDescription: "Project One is a polished front-end concept created to present a personal brand or portfolio in a modern, easy-to-scan way. It emphasizes strong hierarchy, comfortable spacing, and readable content blocks so the work feels professional without being overwhelming.",
-      tags: ["HTML", "CSS", "Design"],
-      image: "",
-      pdf: "",
-      link: "",
-      highlights: ["Modern landing page layout", "Clear visual hierarchy", "Responsive design"],
-      gallery: []
-    },
-    {
-      id: "project-two",
-      title: "Project Two",
-      summary: "An interactive prototype for showcasing work, hobbies, or creative ideas in a more engaging way.",
-      details: "Built to be easy to update whenever more content or media gets added.",
-      longDescription: "Project Two brings more interaction into the portfolio by giving the project a richer, more dynamic presentation. It is built to be easy to maintain and gives you room to add additional content as your work expands.",
-      tags: ["JavaScript", "UI", "Responsive"],
-      image: "",
-      pdf: "",
-      link: "",
-      highlights: ["Interactive design elements", "Easy content updates", "Responsive layout"],
-      gallery: []
-    },
-    {
-      id: "project-three",
-      title: "Project Three",
-      summary: "A presentation-style page for a class project, concept, or final deliverable.",
-      details: "This format makes it easy to add images, links, and research summaries in one place.",
-      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media, and callouts without becoming cluttered.",
-      tags: ["Portfolio", "HTML", "Presentation"],
-      image: "",
-      pdf: "",
-      link: "",
-      highlights: ["Presentation layout", "Supports media and text", "Great for class projects"],
-      gallery: []
-    }
-  ],
-  contact: {
-    email: "you@example.com",
-    github: "https://github.com/yourusername",
-    location: "Miami, FL"
-  }
-};
-
-const content = window.siteContent || FALLBACK_CONTENT;
-
-function buildProjectLink(project) {
-  if (project.id) {
-    return `project.html?id=${encodeURIComponent(project.id)}`;
-  }
-  return project.link || "#";
-}
-
-function createProjectCard(project) {
-  const media = project.image
-    ? `<div class="project-media"><img src="${project.image}" alt="${project.title}" /></div>`
-    : "";
-
-  const tags = project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
-
-  const pdfButton = project.pdf
-    ? `<a class="secondary-button" href="${project.pdf}" target="_blank" rel="noreferrer">View PDF</a>`
-    : "";
-
-  const detailLink = buildProjectLink(project);
-  const primaryButton = project.id
-    ? `<a class="button" href="${detailLink}">More info</a>`
-    : `<a class="button" href="${project.link || "#"}" target="_blank" rel="noreferrer">Open</a>`;
-
-  return `
-    <article class="project-card">
-      ${media}
-      <div class="project-body">
-        <h3>${project.title}</h3>
-        <p>${project.summary}</p>
-        ${project.details ? `<p class="project-note">${project.details}</p>` : ""}
-        <div class="tag-row">${tags}</div>
-        <div class="project-actions">
-          ${primaryButton}
-          ${pdfButton}
-        </div>
+  <main>
+    <section class="section page-header">
+      <div class="container">
+        <a href="projects.html" class="secondary-button">← Back to Projects</a>
       </div>
-    </article>
-  `;
-}
+    </section>
 
-function renderProjects() {
-  const target = document.querySelector("#projects-grid");
-  if (!target) return;
-
-  target.innerHTML = content.projects.map(createProjectCard).join("");
-}
-
-function renderFeaturedProjects() {
-  const target = document.querySelector("#featured-projects");
-  if (!target) return;
-
-  const featured = content.projects.slice(0, 3);
-  target.innerHTML = featured.map(createProjectCard).join("");
-}
-
-function renderAbout() {
-  const aboutTarget = document.querySelector("#about-copy");
-  if (aboutTarget) {
-    aboutTarget.textContent = content.about.blurb;
-  }
-
-  const skillList = document.querySelector("#skills-list");
-  if (skillList) {
-    skillList.innerHTML = content.about.skills.map((skill) => `<li>${skill}</li>`).join("");
-  }
-
-  const homeAbout = document.querySelector("#home-about-copy");
-  if (homeAbout) {
-    homeAbout.textContent = content.about.blurb;
-  }
-
-  const homeSkills = document.querySelector("#home-skills");
-  if (homeSkills) {
-    homeSkills.innerHTML = content.about.skills.map((skill) => `<li>${skill}</li>`).join("");
-  }
-}
-
-function renderContact() {
-  const list = document.querySelector("#contact-list");
-  if (!list) return;
-
-  list.innerHTML = `
-    <li>Email: <a href="mailto:${content.contact.email}">${content.contact.email}</a></li>
-    <li>GitHub: <a href="${content.contact.github}" target="_blank" rel="noreferrer">${content.contact.github}</a></li>
-    <li>Location: ${content.contact.location}</li>
-  `;
-}
-
-function renderProjectDetail() {
-  const container = document.querySelector("#project-detail");
-  if (!container) return;
-
-  const params = new URLSearchParams(window.location.search);
-  const projectId = params.get("id");
-  const project = content.projects.find((item) => item.id === projectId) || content.projects[0];
-
-  const media = project.image
-    ? `<div class="project-detail-media"><img src="${project.image}" alt="${project.title}" /></div>`
-    : "";
-
-  const tags = project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
-  const highlights = (project.highlights || []).map((item) => `<li>${item}</li>`).join("");
-  const gallery = (project.gallery || []).map((item) => `<img src="${item}" alt="${project.title} gallery item" />`).join("");
-  const pdfLink = project.pdf
-    ? `<a class="button" href="${project.pdf}" target="_blank" rel="noreferrer">Open PDF</a>`
-    : "";
-  const externalLink = project.link
-    ? `<a class="secondary-button" href="${project.link}" target="_blank" rel="noreferrer">Open external link</a>`
-    : "";
-
-  container.innerHTML = `
-    <article class="detail-page-card">
-      <div class="detail-page-header">
-        <p class="eyebrow">Project detail</p>
-        <h1>${project.title}</h1>
+    <section class="section">
+      <div class="container">
+        <div id="project-detail"></div>
       </div>
+    </section>
+  </main>
 
-      ${media}
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Enzo Garcia. Built with HTML, CSS, and JavaScript.</p>
+    </div>
+  </footer>
 
-      <div class="detail-copy">
-        <p>${project.longDescription || project.summary}</p>
-        <div class="tag-row">${tags}</div>
-
-        <div class="project-actions detail-actions">
-          ${pdfLink}
-          ${externalLink}
-          <a class="secondary-button" href="projects.html">Back to projects</a>
-        </div>
-
-        ${highlights ? `<div class="detail-panel"><h3>Highlights</h3><ul class="feature-list">${highlights}</ul></div>` : ""}
-      </div>
-
-      ${gallery ? `<div class="gallery-grid">${gallery}</div>` : ""}
-    </article>
-  `;
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  setupMobileNav();
-  renderProjects();
-  renderFeaturedProjects();
-  renderAbout();
-  renderContact();
-  renderProjectDetail();
-});
+  <script src="site-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
