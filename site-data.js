@@ -1,11 +1,15 @@
 const FALLBACK_CONTENT = {
   profile: {
     name: "Enzo Garcia",
-    intro: "Im an Aspiring Engineer, combining a passion and interest in creation, with a desire to pursue the frontier of Space"
+    intro: "I’m a CAD-certified designer and maker with hands-on experience in machining, robotics, and rapid prototyping."
   },
   about: {
-    blurb: "I'm a student and aspiring developer based in South Florida. I enjoy learning how to turn ideas into polished web experiences that feel simple, modern, and easy to navigate.",
-    skills: ["HTML & CSS", "JavaScript", "Responsive design", "GitHub Pages", "UI/UX basics", "Project storytelling"]
+    blurb: "I’m a CAD-certified Fusion user with experience in machining, including 3D printing, laser cutting, and CNC work. I also serve as a seasoned FRC robotics team leader, helping turn ideas into functional, high-performance builds.",
+    skills: [
+      "CAD Certified (Fusion)",
+      "Experienced in machining (3D printers, laser cutting, CNC)",
+      "Seasoned FRC robotics team leader"
+    ]
   },
   projects: [
     {
@@ -49,7 +53,7 @@ const FALLBACK_CONTENT = {
     }
   ],
   contact: {
-    email: "you@example.com",
+    email: "ejgarcia@belenwolverines.org",
     github: "https://github.com/yourusername",
     location: "Miami, FL"
   }
