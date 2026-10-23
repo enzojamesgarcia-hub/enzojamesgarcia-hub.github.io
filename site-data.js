@@ -18,11 +18,11 @@ const FALLBACK_CONTENT = {
       summary: "I recently got to attend the launch of the ARTEMIS II mission on the SLS rocket. A once in a lifetime experience, I still remember the trembling ground.",
       details: "Attending the Artemis II launch and how it gave me a new perspective, literally.",
       longDescription: "I recently got to watch the launch of the Artemis II mission on the SLS rocket. It was a once-in-a-lifetime experience, and I still remember the trembling ground beneath me as the rocket lifted off.",
-      tags: ["TRIP", "EVENT", "INSPIRATION"],
+      tags: ["Rocketry", "EVENT", "INSPIRATION"],
       image: "Assets/Images/home/artemis-ii.jpg",
       pdf: "",
       link: "",
-      highlights: ["Launch experience", "SLS rocket", "Once-in-a-lifetime memory"],
+      highlights: ["Launch experience", "SLS rocket", "Once-in-a-lifetime experience"],
       gallery: []
     },
     {
