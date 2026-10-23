@@ -4,7 +4,7 @@ const FALLBACK_CONTENT = {
     intro: "I’m a CAD-certified designer and maker with hands-on experience in machining, robotics, and rapid prototyping."
   },
   about: {
-    blurb: "I’m a CAD-certified Fusion user with experience in machining, including 3D printing, laser cutting, and CNC work. I also serve as a seasoned FRC robotics team leader, helping turn ideas into functional, high-performance builds.",
+    blurb: "I’m a CAD-certified Fusion user with experience in machining, including 3D printing, laser cutting, and CNC work. I also serve as a seasoned FRC robotics team leader, helping turn ideas into working systems.",
     skills: [
       "CAD Certified (Fusion)",
       "Experienced in machining (3D printers, laser cutting, CNC)",
@@ -17,25 +17,32 @@ const FALLBACK_CONTENT = {
       title: "Attending Artemis II",
       summary: "I recently got to attend the launch of the ARTEMIS II mission on the SLS rocket. A once in a lifetime experience, I still remember the trembling ground.",
       details: "Attending the Artemis II launch and how it gave me a new perspective, literally.",
-      longDescription: "It all started during that first discussion with the other members of the newly founded Aerospace Club.",
-      "While planning out the future of our club, we were certain in our new main competition(ARC), but we wanted to distinguish our club from the rest. Many clubs die out after their founding members graduate, and we noted that only clubs with active and consitent events could truly last. We wanted to show how our passion was fueled by reality, and to keep it alive past our class. To approach this problem we decided to designate it a club project, to maximize the input of our members. It didn't take long for us to flesh out a montly launch schedule, but I had an idea for something more. I had watched countless real launches on streams and videos. I knew how thrilling the real-time experience could be, and that was just through a screen and sound."
-      "I proposed the idea of attending a rocket launcha at Cape Canaveral. It didn't take long for us to begin discussion for the logistics of the trip late into fall. Unfortunatly, we didn't see many launches that we could coordinate a trip for. Dates interfered with plans, launches schedules shifted, and it became difficult to find dates that worked. The problem was whether we had enough notice beforehand, Falcon 9s launched frequently, but they were quite undpredictable in schedule. So we waited, and we watched. It wasn't until in the spring of that year, that we'd be presented with a launch we could be certain of the date for, Artemis II. Coordinating the trip with a clubmate, we were now certain in this project." 
-      "We had already seen Artemis II be delayed twice, and from our experience in watching launches, we thought that this would be our best chance. Little did we know how significant this launch would become. That Wednsday we left early in the morning from outside Belen. After what felt like the longest drive, we arrived in Titusville just on time. we set up a telescope and began taking our first photos. As time went by, we were approached by many wonderful people who asked to look through our telescope setup. We met people from all over the world who had come to watch. One group had come from as far as India, explaing to us their trip to America to watch history be made. This experience alone was amazing. Seeing such people travel from such a far away land, and so many others gathered out of a common interest and in support of such a daring pursuit was truly a whole experience on its own. We had fufilled our first major club project, and now we seek to attend a launch like artemis II every year as a tradition. All pictures or videos displayed are taken by one of our members."
+      longDescription: "It all started during that first discussion with the other members of the newly founded Aerospace Club. While planning out the future of our club, we were certain in our new main competition (ARC), but we wanted to distinguish our club from the rest. Many clubs die out after their founding members leave, so we wanted a mission that would create a lasting legacy. I proposed the idea of attending a rocket launch at Cape Canaveral. It didn’t take long for us to begin planning the logistics of the trip late into the fall. Unfortunately, we didn’t see the launch happen in time that first year, but the excitement and the preparation helped define what this club could become. We had already seen Artemis II be delayed twice, and from our experience in watching launches, we thought that this would be our best chance. Little did we know how significant this launch would feel in person. Standing near the pad and feeling the vibrations, hearing the power, and seeing the rocket rise was unforgettable. It reshaped the way I think about aerospace and the kind of work I want to do in the future.",
       tags: ["Rocketry", "EVENT", "INSPIRATION"],
       image: "Assets/Images/home/artemis-ii.jpg",
+      video: "",
       pdf: "",
       link: "",
-      highlights: ["Launch experience", "SLS rocket", "Once-in-a-lifetime experience"],
-      gallery: []
+      highlights: [
+        "Launch experience",
+        "SLS rocket",
+        "Once-in-a-lifetime experience"
+      ],
+      gallery: [
+        "Assets/Images/home/artemis-ii.jpg",
+        "",
+        ""
+      ]
     },
     {
       id: "project-two",
       title: "Project Two",
       summary: "An interactive prototype for showcasing work, hobbies, or creative ideas in a more engaging way.",
       details: "Built to be easy to update whenever more content or media gets added.",
-      longDescription: "Project Two brings more interaction into the portfolio by giving the project a richer, more dynamic presentation. It is built to be easy to maintain and gives you room to add more content over time.",
+      longDescription: "Project Two brings more interaction into the portfolio by giving the project a richer, more dynamic presentation. It is built to be easy to maintain and gives you room to add images, notes, and supporting content without losing clarity.",
       tags: ["JavaScript", "UI", "Responsive"],
       image: "",
+      video: "",
       pdf: "",
       link: "",
       highlights: ["Interactive layout", "Flexible content updates", "User-friendly presentation"],
@@ -46,9 +53,10 @@ const FALLBACK_CONTENT = {
       title: "Project Three",
       summary: "A presentation-style page for a class project, concept, or final deliverable.",
       details: "This format makes it easy to add images, links, and research summaries in one place.",
-      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media, and research in a clean, focused layout.",
+      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media, and more polished presentation when a deeper project story matters.",
       tags: ["Portfolio", "HTML", "Presentation"],
       image: "",
+      video: "",
       pdf: "",
       link: "",
       highlights: ["Presentation layout", "Supports media and text", "Great for class projects"],
@@ -152,6 +160,30 @@ function renderContact() {
   `;
 }
 
+function isVideoSource(value) {
+  if (!value || typeof value !== "string") return false;
+
+  const trimmed = value.trim();
+  if (!trimmed) return false;
+
+  return /\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(trimmed)
+    || /youtube\.com|youtu\.be|vimeo\.com/i.test(trimmed)
+    || /video/i.test(trimmed);
+}
+
+function renderMediaItem(item, projectTitle) {
+  const source = typeof item === "string" ? item : item?.src || "";
+  if (!source || !source.trim()) return "";
+
+  const label = projectTitle ? `${projectTitle} media` : "Project media";
+
+  if (isVideoSource(source)) {
+    return `<video class="gallery-video" src="${source}" controls playsinline aria-label="${label}"></video>`;
+  }
+
+  return `<img src="${source}" alt="${label}" />`;
+}
+
 function renderProjectDetail() {
   const container = document.querySelector("#project-detail");
   if (!container) return;
@@ -160,13 +192,18 @@ function renderProjectDetail() {
   const projectId = params.get("id");
   const project = content.projects.find((item) => item.id === projectId) || content.projects[0];
 
-  const media = project.image
-    ? `<div class="project-detail-media"><img src="${project.image}" alt="${project.title}" /></div>`
-    : "";
+  const primaryMedia = project.video
+    ? `<div class="project-detail-media"><video src="${project.video}" controls playsinline aria-label="${project.title} video"></video></div>`
+    : project.image
+      ? `<div class="project-detail-media"><img src="${project.image}" alt="${project.title}" /></div>`
+      : "";
 
   const tags = project.tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
   const highlights = (project.highlights || []).map((item) => `<li>${item}</li>`).join("");
-  const gallery = (project.gallery || []).map((item) => `<img src="${item}" alt="${project.title} gallery item" />`).join("");
+  const gallery = (project.gallery || [])
+    .map((item) => renderMediaItem(item, project.title))
+    .filter(Boolean)
+    .join("");
   const pdfLink = project.pdf
     ? `<a class="button" href="${project.pdf}" target="_blank" rel="noreferrer">Open PDF</a>`
     : "";
@@ -181,7 +218,7 @@ function renderProjectDetail() {
         <h1>${project.title}</h1>
       </div>
 
-      ${media}
+      ${primaryMedia}
 
       <div class="detail-copy">
         <p>${project.longDescription || project.summary}</p>
