@@ -18,7 +18,7 @@ const FALLBACK_CONTENT = {
       image: "Assets/Images/home/artemis-ii.jpg",
       pdf: "",
       link: "",
-      highlights: ["Modern landing page layout", "Clear visual hierarchy", "Responsive design"],
+      highlights: ["Club development and coordination", "Inspiring Experience", "Rocketry"],
       gallery: []
     },
     {
@@ -31,7 +31,7 @@ const FALLBACK_CONTENT = {
       image: "",
       pdf: "",
       link: "",
-      highlights: ["Interactive design elements", "Easy content updates", "Responsive layout"],
+      highlights: ["IWORDS", "WIORDS", "WORDS"],
       gallery: []
     },
     {
