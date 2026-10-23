@@ -13,7 +13,7 @@ const FALLBACK_CONTENT = {
       title: "Project One",
       summary: "A clean landing page concept designed to highlight a personal brand or portfolio story.",
       details: "This project focuses on layout, hierarchy, and polished visual spacing.",
-      longDescription: "Project One is a polished front-end concept created to present a personal brand or portfolio in a modern, easy-to-scan way. It emphasizes strong hierarchy, comfortable spacing, and readable content blocks so the work feels professional without being overwhelming.",
+      longDescription: "Project One is a polished front-end concept created to present a personal brand or portfolio in a modern, easy-to-scan way. It emphasizes strong hierarchy, comfortable spacing, and clear visual flow.",
       tags: ["HTML", "CSS", "Design"],
       image: "",
       pdf: "",
@@ -26,7 +26,7 @@ const FALLBACK_CONTENT = {
       title: "Project Two",
       summary: "An interactive prototype for showcasing work, hobbies, or creative ideas in a more engaging way.",
       details: "Built to be easy to update whenever more content or media gets added.",
-      longDescription: "Project Two brings more interaction into the portfolio by giving the project a richer, more dynamic presentation. It is built to be easy to maintain and gives you room to add additional content as your work expands.",
+      longDescription: "Project Two brings more interaction into the portfolio by giving the project a richer, more dynamic presentation. It is built to be easy to maintain and gives you room to add new content over time.",
       tags: ["JavaScript", "UI", "Responsive"],
       image: "",
       pdf: "",
@@ -39,7 +39,7 @@ const FALLBACK_CONTENT = {
       title: "Project Three",
       summary: "A presentation-style page for a class project, concept, or final deliverable.",
       details: "This format makes it easy to add images, links, and research summaries in one place.",
-      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media, and callouts without becoming cluttered.",
+      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media, and simple navigation in one place.",
       tags: ["Portfolio", "HTML", "Presentation"],
       image: "",
       pdf: "",
@@ -163,9 +163,9 @@ function renderProjectDetail() {
   const pdfLink = project.pdf
     ? `<a class="button" href="${project.pdf}" target="_blank" rel="noreferrer">Open PDF</a>`
     : "";
-	const externalLink = project.link
-	  ? `<a class="secondary-button" href="${project.link}" target="_blank" rel="noreferrer">Open external link</a>`
-	  : "";
+  const externalLink = project.link
+    ? `<a class="secondary-button" href="${project.link}" target="_blank" rel="noreferrer">Open external link</a>`
+    : "";
 
   container.innerHTML = `
     <article class="detail-page-card">
@@ -183,7 +183,6 @@ function renderProjectDetail() {
         <div class="project-actions detail-actions">
           ${pdfLink}
           ${externalLink}
-          <a class="secondary-button" href="projects.html">Back to projects</a>
         </div>
 
         ${highlights ? `<div class="detail-panel"><h3>Highlights</h3><ul class="feature-list">${highlights}</ul></div>` : ""}
