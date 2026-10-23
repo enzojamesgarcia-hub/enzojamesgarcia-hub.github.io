@@ -1,7 +1,7 @@
 const FALLBACK_CONTENT = {
   profile: {
     name: "Enzo Garcia",
-    intro: "I build clean, responsive web experiences and like turning simple ideas into polished, easy-to-use sites."
+    intro: "Im an Aspiring Engineer, combining a passion and interest in creation, with a desire to pursue the frontier of Space"
   },
   about: {
     blurb: "I'm a student and aspiring developer based in South Florida. I enjoy learning how to turn ideas into polished web experiences that feel simple, modern, and easy to navigate.",
