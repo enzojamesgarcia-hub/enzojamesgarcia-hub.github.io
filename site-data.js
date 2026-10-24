@@ -1,14 +1,14 @@
 const FALLBACK_CONTENT = {
   profile: {
     name: "Enzo Garcia",
-    intro: "Hi, I'm a student at Belen Jesuit Preparatory School and an aspiring engineer, with a interest in all things Aerospace related."
+    intro: "Hi, I'm a student at Belen Jesuit Preparatory School and an aspiring engineer with an interest in all things aerospace-related."
   },
   about: {
     blurb: "Coming soon...",
     skills: [
       "CAD & DESIGN: Autodesk Fusion, 3D Modeling mechanical, Aerospace, and part Assemblies. Design for 3D printing, laser cutting and various other kinds of manufacturing. Technical/Engineering drawings and dimensioning, GD&T, DFMA, Iterative Prototyping.",
       "PROTOTYPING & MANUFACTURING: FDM 3D printing, Prototype fabrication, Component assembly, Material selection, Design iteration and troubleshooting, basic manufacturing workflows.",
-      "AEROSPACE & FLIGHT PROJECTS: Model rocketry, Rocket assembly and testing, Basic aerodynamics, Wing and fueselage construction, Flight testing and performance evaluation.",
+      "AEROSPACE & FLIGHT PROJECTS: Model rocketry, Rocket assembly and testing, Basic aerodynamics, Wing and fuselage construction, Flight testing and performance evaluation.",
       "ROBOTICS & ENGINEERING: FTC/FRC robotics, Robot component design Mechanical integration, Assembly and testing, collaborative engineering, design and troubleshooting.",
       "PROGRAMMING & TECHNICAL TOOLS: Fluency in JavaScript, CSS, HTML, and other programming languages. Technical problem-solving, Basic electronics, Engineering Software, Data Collection and Analyisis."
     ]
