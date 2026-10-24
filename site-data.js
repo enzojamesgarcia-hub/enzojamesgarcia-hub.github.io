@@ -26,7 +26,7 @@ const FALLBACK_CONTENT = {
       pdf: "",
       link: "",
       highlights: [
-        "Inspirational Experience"
+        "Inspirational Experience",
         "SLS Rocket",
         "New Perspectives"
       ],
