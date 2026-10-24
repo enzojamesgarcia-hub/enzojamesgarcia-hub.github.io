@@ -31,6 +31,7 @@ const FALLBACK_CONTENT = {
       gallery: [
         "Assets/Images/home/artemis-ii-1.jpg",
         "Assets/Images/home/artemis-ii-2.jpg",
+        "Assets/Images/home/artemis-ii-4.jpg",
         "Assets/Images/home/artemis-ii-3.jpg"
       ]
     },
