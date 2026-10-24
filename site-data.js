@@ -32,7 +32,7 @@ const FALLBACK_CONTENT = {
         "Assets/Images/home/artemis-ii-1.jpg",
         "Assets/Images/home/artemis-ii-2.jpg",
         "Assets/Images/home/artemis-ii-4.jpg",
-        "Assets/Images/home/artemis-ii-5.jpg",
+        "Assets/Images/home/8c7d08dc-5673-4041-be3e-fa6d6a8b2c63.jpg",
         "Assets/Images/home/artemis-ii-3.jpg"
       ]
     },
