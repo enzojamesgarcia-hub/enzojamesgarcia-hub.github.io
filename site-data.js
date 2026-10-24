@@ -6,11 +6,11 @@ const FALLBACK_CONTENT = {
   about: {
     blurb: "Coming soon...",
     skills: [
-      "CAD & DESIGN: Autodesk Fusion, 3D Modeling mechanical, Aerospace, and part Assemblies. Design for 3D printing, laser cutting and various other kinds of manufacturing. Technical/Engineering d[...]
-      "PROTOTYPING & MANUFACTURING: FDM 3D printing, Prototype fabrication, Component assembly, Material selection, Design iteration and troubleshooting, basic manufacturing workflows.",
-      "AEROSPACE & FLIGHT PROJECTS: Model rocketry, Rocket assembly and testing, Basic aerodynamics, Wing and fuselage construction, Flight testing and performance evaluation.",
-      "ROBOTICS & ENGINEERING: FTC/FRC robotics, Robot component design Mechanical integration, Assembly and testing, collaborative engineering, design and troubleshooting.",
-      "PROGRAMMING & TECHNICAL TOOLS: Fluency in JavaScript, CSS, HTML, and other programming languages. Technical problem-solving, Basic electronics, Engineering Software, Data Collection and Ana[...]
+      "CAD & DESIGN: Autodesk Fusion, 3D modeling for mechanical, aerospace, and part assemblies. Design for 3D printing, laser cutting, and other manufacturing workflows.",
+      "PROTOTYPING & MANUFACTURING: FDM 3D printing, prototype fabrication, component assembly, material selection, design iteration, troubleshooting, and basic manufacturing workflows.",
+      "AEROSPACE & FLIGHT PROJECTS: Model rocketry, rocket assembly and testing, basic aerodynamics, wing and fuselage construction, and flight testing and performance evaluation.",
+      "ROBOTICS & ENGINEERING: FTC/FRC robotics, robot component design, mechanical integration, assembly and testing, collaborative engineering, and design troubleshooting.",
+      "PROGRAMMING & TECHNICAL TOOLS: Fluency in JavaScript, CSS, HTML, and other programming languages. Technical problem-solving, basic electronics, engineering software, and data collection and analysis."
     ]
   },
   projects: [
@@ -19,7 +19,7 @@ const FALLBACK_CONTENT = {
       title: "Attending Artemis II",
       summary: "I recently got to attend the launch of the ARTEMIS II mission on the SLS rocket. A once in a lifetime experience, I still remember the ground trembling.",
       details: "Attending the Artemis II launch and how it gave me a new perspective, literally. Note: All pictures were taken by me or affiliates of the Belen Aerospace club.",
-      longDescription: "It all started in the early stages of junior year. The newly formed Belen Aerospace Club had a competition to compete in, it had its workspace, it had a monthly launch sche[...]
+      longDescription: "It all started in the early stages of junior year. The newly formed Belen Aerospace Club had a competition to compete in, it had its workspace, it had a monthly launch schedule, and it gave us the opportunity to learn, build, and grow. Attending the Artemis II launch was a defining moment for me and gave me a new perspective on space exploration and engineering.",
       tags: ["Rocketry", "EVENT", "INSPIRATION"],
       image: "Assets/Images/home/artemis-ii-1.jpg",
       video: "",
@@ -44,7 +44,7 @@ const FALLBACK_CONTENT = {
       title: "Project Two",
       summary: "An interactive prototype for showcasing work, hobbies, or creative ideas in a more engaging way.",
       details: "Built to be easy to update whenever more content or media gets added.",
-      longDescription: "Project Two brings more interaction into the portfolio by giving the project a richer, more dynamic presentation. It is built to be easy to maintain and gives you room to a[...]
+      longDescription: "Project Two brings more interaction into the portfolio by giving the project a richer, more dynamic presentation. It is built to be easy to maintain and gives you room to add content as the project develops.",
       tags: ["JavaScript", "UI", "Responsive"],
       image: "",
       video: "",
@@ -58,7 +58,7 @@ const FALLBACK_CONTENT = {
       title: "Project Three",
       summary: "A presentation-style page for a class project, concept, or final deliverable.",
       details: "This format makes it easy to add images, links, and research summaries in one place.",
-      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media[...]
+      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media, and project details in a clean presentation layout.",
       tags: ["Portfolio", "HTML", "Presentation"],
       image: "",
       video: "",
