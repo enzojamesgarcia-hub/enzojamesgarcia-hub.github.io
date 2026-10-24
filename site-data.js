@@ -6,11 +6,11 @@ const FALLBACK_CONTENT = {
   about: {
     blurb: "Coming soon...",
     skills: [
-      "CAD & DESIGN: Autodesk Fusion, 3D Modeling mechanical, Aerospace, and part Assemblies. Design for 3D printing, laser cutting and various other kinds of manufacturing. Technical/Engineering drawings and dimensioning, GD&T, DFMA, Iterative Prototyping.",
+      "CAD & DESIGN: Autodesk Fusion, 3D Modeling mechanical, Aerospace, and part Assemblies. Design for 3D printing, laser cutting and various other kinds of manufacturing. Technical/Engineering d[...]
       "PROTOTYPING & MANUFACTURING: FDM 3D printing, Prototype fabrication, Component assembly, Material selection, Design iteration and troubleshooting, basic manufacturing workflows.",
       "AEROSPACE & FLIGHT PROJECTS: Model rocketry, Rocket assembly and testing, Basic aerodynamics, Wing and fuselage construction, Flight testing and performance evaluation.",
       "ROBOTICS & ENGINEERING: FTC/FRC robotics, Robot component design Mechanical integration, Assembly and testing, collaborative engineering, design and troubleshooting.",
-      "PROGRAMMING & TECHNICAL TOOLS: Fluency in JavaScript, CSS, HTML, and other programming languages. Technical problem-solving, Basic electronics, Engineering Software, Data Collection and Analyisis."
+      "PROGRAMMING & TECHNICAL TOOLS: Fluency in JavaScript, CSS, HTML, and other programming languages. Technical problem-solving, Basic electronics, Engineering Software, Data Collection and Ana[...]
     ]
   },
   projects: [
@@ -19,7 +19,7 @@ const FALLBACK_CONTENT = {
       title: "Attending Artemis II",
       summary: "I recently got to attend the launch of the ARTEMIS II mission on the SLS rocket. A once in a lifetime experience, I still remember the ground trembling.",
       details: "Attending the Artemis II launch and how it gave me a new perspective, literally. Note: All pictures were taken by me or affiliates of the Belen Aerospace club.",
-      longDescription: "It all started in the early stages of junior year. The newly formed Belen Aerospace Club had a competition to compete in, it had its workspace, it had a monthly launch schedule, but it was missing something... We knew from very early on that we wanted the club to stand out from the rest. Many of our members(including me) came from the Belen Robotics club, and we knew that the club would likely die out if we didn't distinguish it through something. After all, Robotics had its own competition already, that would likely take our members time. We wanted to show how the field of Aerospace is much more than the same mechanical/electrical focus of robotics. I especially took note of this, and began coordinating a project with a few other clubmates. I knew from watching launches on Spacex streams of their launches how thrilling watching a real time launch could be. I suggested we watch videos and or streams of launches during club meetings, or even while working on our projects. However it didn't take me long to realize a much larger ambition, something that would set a club tradition for far into the future. Before I could finish presenting the idea to the rest of the club, I casually mentioned how we could possibly even see a real launch. Much to my surprise this idea suddenly became central. We quickly coordinated a project to find launches we could attend that year. At first, I was quick to suggest attending a routine starlink launch out of the Cape, which at this point was happening almost every day. However, scheduling quickly became an issue. SpaceX launches happened so fast it was hard to pinpoint dates, or times for us to meet. We knew the day-long drive would need a much larger and important launch to give us the time we needed. We knew of Artemis II and a couple other launches scheduled for that year. At first Artemis II's date didn't work out for the group: Other activities, projects, or tests were scheduled precisely on its launch date. However many of the other launches for the next months also conflicted with schedules or were changing too often. However this would prove fortunate for us, as by spring of that year, we had been given a second chance at the Artemis II launch. It had been delayed twice, and its new schedule had perfectly aligned with the clubs, with April 1st being the launch date. In this highly fortunate turn of events, combined with a progression in our launch tracking abilities, we were able to plan out the trip. This was amazing to us, our struggles to even find a launch met with the most important of the whole year. For context, Artemis II was set to be the first crewed flight back to the Moon by NASA in 50 years! We left early that April 1st morning, and untrue to the holiday, the launch would not prank us that afternoon. As we arrived, we began to set up viewing equipment like telescopes and cameras. It was to our surprise that many people began to approach and ask to see through our equipment. One group had come from as far as India and told us their story, traveling all the way to America just to watch this launch. It was great meeting so many people, and getting to share in our passion for the space frontier. While I had never gotten to see a rocket from an in person perspective before, I think meeting all those people sharing that common interest with us was the most important new perspective I saw.",
+      longDescription: "It all started in the early stages of junior year. The newly formed Belen Aerospace Club had a competition to compete in, it had its workspace, it had a monthly launch sche[...]
       tags: ["Rocketry", "EVENT", "INSPIRATION"],
       image: "Assets/Images/home/artemis-ii-1.jpg",
       video: "",
@@ -35,7 +35,7 @@ const FALLBACK_CONTENT = {
         "Assets/Images/home/Me.jpg",
         "Assets/Images/home/artemis-ii-2.jpg",
         "Assets/Images/home/artemis-ii-4.jpg",
-        "Assets/Images/home/artemis-ii-6.jpg"
+        "Assets/Images/home/artemis-ii-6.jpg",
         "Assets/Images/home/artemis-ii-3.jpg"
       ]
     },
@@ -44,7 +44,7 @@ const FALLBACK_CONTENT = {
       title: "Project Two",
       summary: "An interactive prototype for showcasing work, hobbies, or creative ideas in a more engaging way.",
       details: "Built to be easy to update whenever more content or media gets added.",
-      longDescription: "Project Two brings more interaction into the portfolio by giving the project a richer, more dynamic presentation. It is built to be easy to maintain and gives you room to add work without restructuring the page.",
+      longDescription: "Project Two brings more interaction into the portfolio by giving the project a richer, more dynamic presentation. It is built to be easy to maintain and gives you room to a[...]
       tags: ["JavaScript", "UI", "Responsive"],
       image: "",
       video: "",
@@ -58,7 +58,7 @@ const FALLBACK_CONTENT = {
       title: "Project Three",
       summary: "A presentation-style page for a class project, concept, or final deliverable.",
       details: "This format makes it easy to add images, links, and research summaries in one place.",
-      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media, and project context in one clean layout.",
+      longDescription: "Project Three is designed for a capstone, class assignment, or portfolio showcase where a bit more explanation is needed. The page structure supports supporting text, media[...]
       tags: ["Portfolio", "HTML", "Presentation"],
       image: "",
       video: "",
