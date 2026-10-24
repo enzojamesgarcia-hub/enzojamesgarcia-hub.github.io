@@ -1,14 +1,16 @@
 const FALLBACK_CONTENT = {
   profile: {
     name: "Enzo Garcia",
-    intro: "I’m a CAD-certified designer and maker with hands-on experience in machining, robotics, and rapid prototyping."
+    intro: "Hi, I'm a student at Belen Jesuit Preperatory School and an asipring engineer, with a interest in all things Aerospace related."
   },
   about: {
-    blurb: "I’m a CAD-certified Fusion user with experience in machining, including 3D printing, laser cutting, and CNC work. I also serve as a seasoned FRC robotics team leader, helping turn ideas into real, buildable systems.",
+    blurb: "Coming soon...",
     skills: [
-      "CAD Certified (Fusion)",
-      "Experienced in machining (3D printers, laser cutting, CNC)",
-      "Seasoned FRC robotics team leader"
+      "CAD & DESIGN: Autodesk Fusion, 3D Modeling mechanical, Aerospace, and part Assemblies. Design for 3D printing, laser cutting and various other kinds of manufacturing. Technical/Engineering drawings and dimensioning, GD&T, DFMA, Iterative Prototyping.",
+      "PROTOTYPING & MANUFACTURING: FDM 3D printing, Prototype fabrication, Component assembly, Material selection, Design iteration and troubleshooting, basic manufacturing workflows.",
+      "AEROSPACE & FLIGHT PROJECTS: Model rocketry, Rocket assembly and testing, Basic aerodynamics, Wing and fueselage construction, Flight testing and performance evaluation.",
+      "ROBOTICS & ENGINEERING: FTC/FRC robotics, Robot component design Mechanical integration, Assembly and testing, collaborative engineering, design and troubleshooting.",
+      "PROGRAMMING & TECHNICAL TOOLS: Fluency in JavaScript, CSS, HTML, and other programming languages. Technical problem-solving, Basic electronics, Engineering Software, Data Collection and Analyisis."
     ]
   },
   projects: [
@@ -24,9 +26,9 @@ const FALLBACK_CONTENT = {
       pdf: "",
       link: "",
       highlights: [
-        "Launch experience",
-        "SLS rocket",
-        "Once-in-a-lifetime experience"
+        "Inspirational Experience"
+        "SLS Rocket",
+        "New Perspectives"
       ],
       gallery: [
         "Assets/Images/home/artemis-ii-1.jpg",
