@@ -1,7 +1,7 @@
 const FALLBACK_CONTENT = {
   profile: {
     name: "Enzo Garcia",
-    intro: "Hi, I'm a student at Belen Jesuit Preperatory School and an asipring engineer, with a interest in all things Aerospace related."
+    intro: "Hi, I'm a student at Belen Jesuit Preparatory School and an aspiring engineer, with a interest in all things Aerospace related."
   },
   about: {
     blurb: "Coming soon...",
@@ -69,7 +69,7 @@ const FALLBACK_CONTENT = {
   ],
   contact: {
     email: "ejgarcia@belenwolverines.org",
-    github: "https://github.com/yourusername",
+    github: "https://github.com/enzojamesgarcia",
     location: "Miami, FL"
   }
 };
