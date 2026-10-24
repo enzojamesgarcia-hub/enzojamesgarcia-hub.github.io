@@ -111,19 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
       || /video/i.test(trimmed);
   }
 
-  function renderMediaItem(item, projectTitle, index = 0, isActive = false) {
-    const source = typeof item === "string" ? item : item?.src || "";
-    if (!source || !source.trim()) return "";
-
-    const label = projectTitle ? `${projectTitle} media ${index + 1}` : `Project media ${index + 1}`;
-
-    if (isVideoSource(source)) {
-      return `<button class="gallery-slide ${isActive ? "is-active" : ""}" type="button" data-src="${source}" data-index="${index}" aria-label="${label}"><video class="gallery-media" src="${source}" controls playsinline aria-label="${label}"></video></button>`;
-    }
-
-    return `<button class="gallery-slide ${isActive ? "is-active" : ""}" type="button" data-src="${source}" data-index="${index}" aria-label="${label}"><img src="${source}" alt="${label}" /></button>`;
-  }
-
   function renderGallerySlider(project) {
     const gallery = (project.gallery || []).filter((item) => {
       const source = typeof item === "string" ? item : item?.src || "";
@@ -132,30 +119,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!gallery.length) return "";
 
-    const slides = gallery
-      .map((item, index) => renderMediaItem(item, project.title, index, index === 0))
-      .join("");
+    const titleSlug = (project.title || "project")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "project";
 
-    const thumbs = gallery
+    const cards = gallery
       .map((item, index) => {
         const source = typeof item === "string" ? item : item?.src || "";
-        if (!source || !source.trim()) return "";
-        const thumbLabel = `${project.title} thumbnail ${index + 1}`;
-        return `<button class="gallery-thumb ${index === 0 ? "is-active" : ""}" type="button" data-index="${index}" aria-label="${thumbLabel}"><img src="${source}" alt="${thumbLabel}" /></button>`;
+        const title = `${project.title} image ${index + 1}`;
+        return `
+          <button class="gallery-card" type="button" data-src="${source}" data-index="${index}" aria-label="${title}">
+            <img src="${source}" alt="${title}" />
+          </button>
+        `;
       })
       .join("");
 
     return `
-      <div class="gallery-slider" data-project="${project.title}">
+      <div class="gallery-bank" id="gallery-bank-${titleSlug}" data-project="${project.title}">
         <div class="gallery-slider-header">
           <h3>Gallery</h3>
           <div class="gallery-nav">
-            <button type="button" class="gallery-arrow prev" aria-label="Previous image">&#10094;</button>
-            <button type="button" class="gallery-arrow next" aria-label="Next image">&#10095;</button>
+            <button type="button" class="gallery-arrow prev" aria-label="Previous images">&#10094;</button>
+            <button type="button" class="gallery-arrow next" aria-label="Next images">&#10095;</button>
           </div>
         </div>
-        <div class="gallery-stage">${slides}</div>
-        <div class="gallery-thumbs">${thumbs}</div>
+        <div class="gallery-bank-track">${cards}</div>
       </div>
     `;
   }
@@ -173,26 +163,26 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  function openLightbox(slider, nextIndex) {
-    const slides = [...slider.querySelectorAll(".gallery-slide")];
-    if (!slides.length) return;
+  function openLightbox(bank, currentIndex) {
+    const cards = [...bank.querySelectorAll(".gallery-card")];
+    if (!cards.length) return;
 
     const lightbox = document.getElementById("gallery-lightbox");
     if (!lightbox) return;
 
-    const targetIndex = (nextIndex + slides.length) % slides.length;
-    const activeSlide = slides[targetIndex];
-    const source = activeSlide?.dataset.src || "";
+    const safeIndex = ((currentIndex % cards.length) + cards.length) % cards.length;
+    const activeCard = cards[safeIndex];
     const mediaWrap = lightbox.querySelector(".lightbox-media");
     if (!mediaWrap) return;
 
-    lightbox.dataset.index = String(targetIndex);
-    lightbox.dataset.sliderSelector = ".gallery-slider[data-project=\"" + slider.dataset.project + "\"]";
+    const source = activeCard?.dataset.src || "";
+    lightbox.dataset.bankId = bank.id;
+    lightbox.dataset.index = String(safeIndex);
 
     if (isVideoSource(source)) {
       mediaWrap.innerHTML = `<video src="${source}" controls playsinline autoplay></video>`;
     } else {
-      mediaWrap.innerHTML = `<img src="${source}" alt="${slider.dataset.project || "Project image"}" />`;
+      mediaWrap.innerHTML = `<img src="${source}" alt="${bank.dataset.project || "Project image"}" />`;
     }
 
     lightbox.classList.add("open");
@@ -206,42 +196,37 @@ document.addEventListener("DOMContentLoaded", () => {
     lightbox.setAttribute("aria-hidden", "true");
   }
 
-  function setupGallerySlider() {
-    const sliders = document.querySelectorAll(".gallery-slider");
-    if (!sliders.length) return;
+  function setupGalleryBank() {
+    const banks = document.querySelectorAll(".gallery-bank");
+    if (!banks.length) return;
 
-    sliders.forEach((slider) => {
-      const slides = [...slider.querySelectorAll(".gallery-slide")];
-      const thumbs = [...slider.querySelectorAll(".gallery-thumb")];
-      const prevButton = slider.querySelector(".gallery-arrow.prev");
-      const nextButton = slider.querySelector(".gallery-arrow.next");
+    banks.forEach((bank) => {
+      const track = bank.querySelector(".gallery-bank-track");
+      const prevButton = bank.querySelector(".gallery-arrow.prev");
+      const nextButton = bank.querySelector(".gallery-arrow.next");
+      const cards = [...bank.querySelectorAll(".gallery-card")];
 
-      if (!slides.length) return;
+      if (!track || !cards.length) return;
 
-      let currentIndex = 0;
-
-      const showSlide = (index) => {
-        currentIndex = (index + slides.length) % slides.length;
-        slides.forEach((slide, slideIndex) => {
-          slide.classList.toggle("is-active", slideIndex === currentIndex);
-        });
-        thumbs.forEach((thumb, thumbIndex) => {
-          thumb.classList.toggle("is-active", thumbIndex === currentIndex);
-        });
+      const scrollAmount = () => {
+        const firstCard = cards[0];
+        if (!firstCard) return 220;
+        const style = window.getComputedStyle(track);
+        const gap = parseFloat(style.columnGap || style.gap || "16");
+        return firstCard.getBoundingClientRect().width + gap;
       };
 
-      prevButton?.addEventListener("click", () => showSlide(currentIndex - 1));
-      nextButton?.addEventListener("click", () => showSlide(currentIndex + 1));
-
-      thumbs.forEach((thumb, thumbIndex) => {
-        thumb.addEventListener("click", () => showSlide(thumbIndex));
+      prevButton?.addEventListener("click", () => {
+        track.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
       });
 
-      slides.forEach((slide) => {
-        slide.addEventListener("click", () => openLightbox(slider, Number(slide.dataset.index || 0)));
+      nextButton?.addEventListener("click", () => {
+        track.scrollBy({ left: scrollAmount(), behavior: "smooth" });
       });
 
-      showSlide(0);
+      cards.forEach((card) => {
+        card.addEventListener("click", () => openLightbox(bank, Number(card.dataset.index || 0)));
+      });
     });
 
     const lightbox = document.getElementById("gallery-lightbox");
@@ -252,8 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const galleryLightbox = document.getElementById("gallery-lightbox");
     if (!galleryLightbox) return;
 
-    const closeButton = galleryLightbox.querySelector(".lightbox-close");
-    closeButton?.addEventListener("click", closeLightbox);
+    galleryLightbox.querySelector(".lightbox-close")?.addEventListener("click", closeLightbox);
 
     galleryLightbox.addEventListener("click", (event) => {
       if (event.target === galleryLightbox) {
@@ -261,42 +245,37 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    const lightboxPrev = galleryLightbox.querySelector(".lightbox-arrow.prev");
-    const lightboxNext = galleryLightbox.querySelector(".lightbox-arrow.next");
-
-    lightboxPrev?.addEventListener("click", () => {
-      const activeSlider = document.querySelector(".gallery-slider");
-      if (!activeSlider) return;
-      const slides = [...activeSlider.querySelectorAll(".gallery-slide")];
-      if (!slides.length) return;
+    galleryLightbox.querySelector(".lightbox-arrow.prev")?.addEventListener("click", () => {
+      const bank = document.getElementById(galleryLightbox.dataset.bankId || "");
+      if (!bank) return;
+      const cards = [...bank.querySelectorAll(".gallery-card")];
+      if (!cards.length) return;
       const currentIndex = Number(galleryLightbox.dataset.index || 0);
-      const nextIndex = currentIndex > 0 ? currentIndex - 1 : slides.length - 1;
-      openLightbox(activeSlider, nextIndex);
+      openLightbox(bank, currentIndex - 1);
     });
 
-    lightboxNext?.addEventListener("click", () => {
-      const activeSlider = document.querySelector(".gallery-slider");
-      if (!activeSlider) return;
-      const slides = [...activeSlider.querySelectorAll(".gallery-slide")];
-      if (!slides.length) return;
+    galleryLightbox.querySelector(".lightbox-arrow.next")?.addEventListener("click", () => {
+      const bank = document.getElementById(galleryLightbox.dataset.bankId || "");
+      if (!bank) return;
+      const cards = [...bank.querySelectorAll(".gallery-card")];
+      if (!cards.length) return;
       const currentIndex = Number(galleryLightbox.dataset.index || 0);
-      const nextIndex = currentIndex < slides.length - 1 ? currentIndex + 1 : 0;
-      openLightbox(activeSlider, nextIndex);
+      openLightbox(bank, currentIndex + 1);
     });
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") closeLightbox();
       if (event.key === "ArrowRight") {
-        const activeSlider = document.querySelector(".gallery-slider");
-        if (!activeSlider) return;
+        const bank = document.getElementById(galleryLightbox.dataset.bankId || "");
+        if (!bank) return;
         const currentIndex = Number(galleryLightbox.dataset.index || 0);
-        openLightbox(activeSlider, currentIndex + 1);
+        openLightbox(bank, currentIndex + 1);
       }
       if (event.key === "ArrowLeft") {
-        const activeSlider = document.querySelector(".gallery-slider");
-        if (!activeSlider) return;
+        const bank = document.getElementById(galleryLightbox.dataset.bankId || "");
+        if (!bank) return;
         const currentIndex = Number(galleryLightbox.dataset.index || 0);
-        openLightbox(activeSlider, currentIndex - 1);
+        openLightbox(bank, currentIndex - 1);
       }
     });
   }
@@ -354,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </article>
     `;
 
-    setupGallerySlider();
+    setupGalleryBank();
   }
 
   renderProjects();
