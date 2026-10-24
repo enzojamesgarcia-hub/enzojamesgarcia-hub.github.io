@@ -40,9 +40,9 @@ const FALLBACK_CONTENT = {
       ]
     },
     {
-      id: "project-two",
-      title: "Project Two",
-      summary: "An interactive prototype for showcasing work, hobbies, or creative ideas in a more engaging way.",
+      id: "BOXCAR'",
+      title: "The 'Boxcar'",
+      summary: "The 'Boxcar' is a multipurpose testbed aircraft for future projects and various payloads. Its first associated project will be a series of mounted cameras to locate and anaylze landed rockets.",
       details: "Built to be easy to update whenever more content or media gets added.",
       longDescription: "Project Two brings more interaction into the portfolio by giving the project a richer, more dynamic presentation. It is built to be easy to maintain and gives you room to add content as the project develops.",
       tags: ["JavaScript", "UI", "Responsive"],
