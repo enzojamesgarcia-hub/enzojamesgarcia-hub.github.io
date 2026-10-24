@@ -111,17 +111,194 @@ document.addEventListener("DOMContentLoaded", () => {
       || /video/i.test(trimmed);
   }
 
-  function renderMediaItem(item, projectTitle) {
+  function renderMediaItem(item, projectTitle, index = 0, isActive = false) {
     const source = typeof item === "string" ? item : item?.src || "";
     if (!source || !source.trim()) return "";
 
-    const label = projectTitle ? `${projectTitle} media` : "Project media";
+    const label = projectTitle ? `${projectTitle} media ${index + 1}` : `Project media ${index + 1}`;
 
     if (isVideoSource(source)) {
-      return `<video class="gallery-video" src="${source}" controls playsinline aria-label="${label}"></video>`;
+      return `<button class="gallery-slide ${isActive ? "is-active" : ""}" type="button" data-src="${source}" data-index="${index}" aria-label="${label}"><video class="gallery-media" src="${source}" controls playsinline aria-label="${label}"></video></button>`;
     }
 
-    return `<img src="${source}" alt="${label}" />`;
+    return `<button class="gallery-slide ${isActive ? "is-active" : ""}" type="button" data-src="${source}" data-index="${index}" aria-label="${label}"><img src="${source}" alt="${label}" /></button>`;
+  }
+
+  function renderGallerySlider(project) {
+    const gallery = (project.gallery || []).filter((item) => {
+      const source = typeof item === "string" ? item : item?.src || "";
+      return !!source && source.trim();
+    });
+
+    if (!gallery.length) return "";
+
+    const slides = gallery
+      .map((item, index) => renderMediaItem(item, project.title, index, index === 0))
+      .join("");
+
+    const thumbs = gallery
+      .map((item, index) => {
+        const source = typeof item === "string" ? item : item?.src || "";
+        if (!source || !source.trim()) return "";
+        const thumbLabel = `${project.title} thumbnail ${index + 1}`;
+        return `<button class="gallery-thumb ${index === 0 ? "is-active" : ""}" type="button" data-index="${index}" aria-label="${thumbLabel}"><img src="${source}" alt="${thumbLabel}" /></button>`;
+      })
+      .join("");
+
+    return `
+      <div class="gallery-slider" data-project="${project.title}">
+        <div class="gallery-slider-header">
+          <h3>Gallery</h3>
+          <div class="gallery-nav">
+            <button type="button" class="gallery-arrow prev" aria-label="Previous image">&#10094;</button>
+            <button type="button" class="gallery-arrow next" aria-label="Next image">&#10095;</button>
+          </div>
+        </div>
+        <div class="gallery-stage">${slides}</div>
+        <div class="gallery-thumbs">${thumbs}</div>
+      </div>
+    `;
+  }
+
+  function buildLightboxMarkup() {
+    return `
+      <div class="gallery-lightbox" id="gallery-lightbox" aria-hidden="true">
+        <button type="button" class="lightbox-close" aria-label="Close image">&times;</button>
+        <button type="button" class="lightbox-arrow prev" aria-label="Previous image">&#10094;</button>
+        <div class="lightbox-frame">
+          <div class="lightbox-media"></div>
+        </div>
+        <button type="button" class="lightbox-arrow next" aria-label="Next image">&#10095;</button>
+      </div>
+    `;
+  }
+
+  function openLightbox(slider, nextIndex) {
+    const slides = [...slider.querySelectorAll(".gallery-slide")];
+    if (!slides.length) return;
+
+    const lightbox = document.getElementById("gallery-lightbox");
+    if (!lightbox) return;
+
+    const targetIndex = (nextIndex + slides.length) % slides.length;
+    const activeSlide = slides[targetIndex];
+    const source = activeSlide?.dataset.src || "";
+    const mediaWrap = lightbox.querySelector(".lightbox-media");
+    if (!mediaWrap) return;
+
+    lightbox.dataset.index = String(targetIndex);
+    lightbox.dataset.sliderSelector = ".gallery-slider[data-project=\"" + slider.dataset.project + "\"]";
+
+    if (isVideoSource(source)) {
+      mediaWrap.innerHTML = `<video src="${source}" controls playsinline autoplay></video>`;
+    } else {
+      mediaWrap.innerHTML = `<img src="${source}" alt="${slider.dataset.project || "Project image"}" />`;
+    }
+
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+  }
+
+  function closeLightbox() {
+    const lightbox = document.getElementById("gallery-lightbox");
+    if (!lightbox) return;
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+  }
+
+  function setupGallerySlider() {
+    const sliders = document.querySelectorAll(".gallery-slider");
+    if (!sliders.length) return;
+
+    sliders.forEach((slider) => {
+      const slides = [...slider.querySelectorAll(".gallery-slide")];
+      const thumbs = [...slider.querySelectorAll(".gallery-thumb")];
+      const prevButton = slider.querySelector(".gallery-arrow.prev");
+      const nextButton = slider.querySelector(".gallery-arrow.next");
+
+      if (!slides.length) return;
+
+      let currentIndex = 0;
+
+      const showSlide = (index) => {
+        currentIndex = (index + slides.length) % slides.length;
+        slides.forEach((slide, slideIndex) => {
+          slide.classList.toggle("is-active", slideIndex === currentIndex);
+        });
+        thumbs.forEach((thumb, thumbIndex) => {
+          thumb.classList.toggle("is-active", thumbIndex === currentIndex);
+        });
+      };
+
+      prevButton?.addEventListener("click", () => showSlide(currentIndex - 1));
+      nextButton?.addEventListener("click", () => showSlide(currentIndex + 1));
+
+      thumbs.forEach((thumb, thumbIndex) => {
+        thumb.addEventListener("click", () => showSlide(thumbIndex));
+      });
+
+      slides.forEach((slide) => {
+        slide.addEventListener("click", () => openLightbox(slider, Number(slide.dataset.index || 0)));
+      });
+
+      showSlide(0);
+    });
+
+    const lightbox = document.getElementById("gallery-lightbox");
+    if (!lightbox) {
+      document.body.insertAdjacentHTML("beforeend", buildLightboxMarkup());
+    }
+
+    const galleryLightbox = document.getElementById("gallery-lightbox");
+    if (!galleryLightbox) return;
+
+    const closeButton = galleryLightbox.querySelector(".lightbox-close");
+    closeButton?.addEventListener("click", closeLightbox);
+
+    galleryLightbox.addEventListener("click", (event) => {
+      if (event.target === galleryLightbox) {
+        closeLightbox();
+      }
+    });
+
+    const lightboxPrev = galleryLightbox.querySelector(".lightbox-arrow.prev");
+    const lightboxNext = galleryLightbox.querySelector(".lightbox-arrow.next");
+
+    lightboxPrev?.addEventListener("click", () => {
+      const activeSlider = document.querySelector(".gallery-slider");
+      if (!activeSlider) return;
+      const slides = [...activeSlider.querySelectorAll(".gallery-slide")];
+      if (!slides.length) return;
+      const currentIndex = Number(galleryLightbox.dataset.index || 0);
+      const nextIndex = currentIndex > 0 ? currentIndex - 1 : slides.length - 1;
+      openLightbox(activeSlider, nextIndex);
+    });
+
+    lightboxNext?.addEventListener("click", () => {
+      const activeSlider = document.querySelector(".gallery-slider");
+      if (!activeSlider) return;
+      const slides = [...activeSlider.querySelectorAll(".gallery-slide")];
+      if (!slides.length) return;
+      const currentIndex = Number(galleryLightbox.dataset.index || 0);
+      const nextIndex = currentIndex < slides.length - 1 ? currentIndex + 1 : 0;
+      openLightbox(activeSlider, nextIndex);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowRight") {
+        const activeSlider = document.querySelector(".gallery-slider");
+        if (!activeSlider) return;
+        const currentIndex = Number(galleryLightbox.dataset.index || 0);
+        openLightbox(activeSlider, currentIndex + 1);
+      }
+      if (event.key === "ArrowLeft") {
+        const activeSlider = document.querySelector(".gallery-slider");
+        if (!activeSlider) return;
+        const currentIndex = Number(galleryLightbox.dataset.index || 0);
+        openLightbox(activeSlider, currentIndex - 1);
+      }
+    });
   }
 
   function renderProjectDetail() {
@@ -143,10 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const tags = (project.tags || []).map((tag) => `<span class="tag">${tag}</span>`).join("");
     const highlights = (project.highlights || []).map((item) => `<li>${item}</li>`).join("");
-    const gallery = (project.gallery || [])
-      .map((item) => renderMediaItem(item, project.title))
-      .filter(Boolean)
-      .join("");
+    const galleryMarkup = renderGallerySlider(project);
 
     const pdfLink = project.pdf
       ? `<a class="button" href="${project.pdf}" target="_blank" rel="noreferrer">Open PDF</a>`
@@ -176,9 +350,11 @@ document.addEventListener("DOMContentLoaded", () => {
           ${highlights ? `<div class="detail-panel"><h3>Highlights</h3><ul class="feature-list">${highlights}</ul></div>` : ""}
         </div>
 
-        ${gallery ? `<div class="gallery-grid">${gallery}</div>` : ""}
+        ${galleryMarkup ? `${galleryMarkup}` : ""}
       </article>
     `;
+
+    setupGallerySlider();
   }
 
   renderProjects();
