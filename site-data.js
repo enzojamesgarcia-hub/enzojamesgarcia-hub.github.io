@@ -4,7 +4,7 @@ const FALLBACK_CONTENT = {
     intro: "Hi, I'm a student at Belen Jesuit Preparatory School and an aspiring engineer with an interest in all things aerospace-related."
   },
   about: {
-    blurb: "Coming soon...",
+    blurb: "I'm Enzo Garcia, a student at Belen Jesuit Preparatory School with a strong interest in aerospace and mechanical engineering. My interest in engineering comes from a desire to understand how things work and use that understanding to create something of my own. To create things from creation, to understand creation. Through robotics, CAD, 3D printing, and aerospace projects, I've developed hands-on experience turning ideas into functional designs. As a co-founder of my school's Aerospace Club, I've helped design, build, and test rockets and model aircraft while collaborating with other students to bring projects to life.I'm particularly interested in the engineering behind aerospace vehicles: how they're designed, how their components work together, and how theoretical ideas translate into real-world performance. I enjoy the process of taking a concept from an initial design through fabrication, testing, and refinement.I'm continuing to develop my technical skills and explore new challenges as I work toward a future in aerospace engineering.",
     skills: [
       "CAD & DESIGN: Autodesk Fusion, 3D modeling for mechanical, aerospace, and part assemblies. Design for 3D printing, laser cutting, and other manufacturing workflows.",
       "PROTOTYPING & MANUFACTURING: FDM 3D printing, prototype fabrication, component assembly, material selection, design iteration, troubleshooting, and basic manufacturing workflows.",
