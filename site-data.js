@@ -7,7 +7,7 @@ const FALLBACK_CONTENT = {
     blurb: "I'm Enzo Garcia, a student at Belen Jesuit Preparatory School with a strong interest in aerospace and mechanical engineering. My interest in engineering comes from a desire to understand how things work and use that understanding to create something of my own.",
            "To create from creation, to understand creation. This idea reflects what draws me to engineering: the opportunity to study the systems and designs that already exist, understand the principles behind them, and use that knowledge to build something new. For me, engineering is not just about knowing how something works, but about applying that knowledge to bring an idea to life.",
            "Through robotics, CAD, 3D printing, and aerospace projects, I've developed hands-on experience turning ideas into functional designs. As a co-founder of my school's Aerospace Club, I've helped design, build, and test rockets and model aircraft while collaborating with other students to bring projects to life. These experiences have allowed me to explore the full design process, from developing an initial concept and creating models to fabricating components, assembling systems, and learning from testing.",
-           "I'm particularly interested in the engineering behind aerospace vehicles: how they're designed, how their components work together, and how theoretical ideas translate into real-world performance. I enjoy tackling technical challenges, refining designs, and finding practical solutions when something doesn't work as expected. As I continue developing my technical skills and taking on new projects, I hope to deepen my understanding of aerospace engineering and eventually contribute to the design and development of vehicles and systems that push the boundaries of exploration."
+           "I'm particularly interested in the engineering behind aerospace vehicles: how they're designed, how their components work together, and how theoretical ideas translate into real-world performance. I enjoy tackling technical challenges, refining designs, and finding practical solutions when something doesn't work as expected. As I continue developing my technical skills and taking on new projects, I hope to deepen my understanding of aerospace engineering and eventually contribute to the design and development of vehicles and systems that push the boundaries of exploration.",
     skills: [
       "CAD & DESIGN: Autodesk Fusion, 3D modeling for mechanical, aerospace, and part assemblies. Design for 3D printing, laser cutting, and other manufacturing workflows.",
       "PROTOTYPING & MANUFACTURING: FDM 3D printing, prototype fabrication, component assembly, material selection, design iteration, troubleshooting, and basic manufacturing workflows.",
@@ -23,13 +23,13 @@ const FALLBACK_CONTENT = {
       summary: "I recently got to attend the launch of the ARTEMIS II mission on the SLS rocket. A once in a lifetime experience, I still remember the ground trembling.",
       details: "Attending the Artemis II launch and how it gave me a new perspective, literally. Note: All pictures were taken by me or affiliates of the Belen Aerospace club.",
       longDescription: "It all started in the early stages of junior year. The newly formed Belen Aerospace Club had a competition to compete in, it had its workspace, it had a monthly launch schedule, but it was missing something...",
-                       "We knew from very early on that we wanted the club to stand out from the rest. Many of our members (including me) came from the Belen Robotics club, and we knew that the club would likely die out if we didn’t distinguish it through something. After all, Robotics had its own competition already, which would likely take our members’ time. We wanted to show how the field of Aerospace is much more than the same mechanical/electrical focus of robotics.",
-                       "I especially took note of this, and began coordinating a project with a few other clubmates. I knew from watching SpaceX streams how thrilling watching a launch in real time could be. I suggested we watch videos and/or streams of launches during club meetings, or even while working on our projects. However, it didn’t take me long to realize a much larger ambition, something that would set a club tradition for far into the future. Before I could finish presenting the idea to the rest of the club, I casually mentioned how we could possibly even see a real launch. Much to my surprise, this idea suddenly became central.",
-                       "We quickly coordinated a project to find launches we could attend that year. At first, I was quick to suggest attending a routine Starlink launch out of the Cape, which at this point was happening almost every day. However, scheduling quickly became an issue. SpaceX launches happened so fast it was hard to pinpoint dates or times for us to meet. We knew the day-long drive would need a much larger and more important launch to justify the time.",
-                       "We knew of Artemis II and a couple of other launches scheduled for that year. At first, Artemis II’s date didn’t work for the group: other activities, projects, or tests were scheduled precisely on its launch date. Many of the other launches for the next months also conflicted with schedules or were changing too often. However, this would prove fortunate for us, as by spring of that year, we had been given a second chance at the Artemis II launch. It had been delayed twice, and its new schedule had perfectly aligned with the club’s, with April 1st being the launch date.",
-                       "With this fortunate turn of events, combined with a progression in our launch tracking abilities, we were able to plan out the trip. This was amazing to us: our struggle to even find a launch had been met with the most important of the whole year. For context, Artemis II was set to be the first crewed flight to the Moon by NASA in 50 years!",
-                       "We left early that April 1st morning, and, untrue to the holiday, the launch would not prank us that afternoon. As we arrived, we began to set up viewing equipment like telescopes and cameras. To our surprise, many people began to approach and ask to see through our equipment. One group had come from as far as India and told us their story, traveling all the way to America just to watch this launch. It was great meeting so many people and getting to share in our passion for the space frontier.",
-                       "While I had never gotten to see a rocket in person before, I think meeting all those people who shared that common interest with us was the most important new perspective I gained.",
+      "We knew from very early on that we wanted the club to stand out from the rest. Many of our members (including me) came from the Belen Robotics club, and we knew that the club would likely die out if we didn’t distinguish it through something. After all, Robotics had its own competition already, which would likely take our members’ time. We wanted to show how the field of Aerospace is much more than the same mechanical/electrical focus of robotics.",
+      "I especially took note of this, and began coordinating a project with a few other clubmates. I knew from watching SpaceX streams how thrilling watching a launch in real time could be. I suggested we watch videos and/or streams of launches during club meetings, or even while working on our projects. However, it didn’t take me long to realize a much larger ambition, something that would set a club tradition for far into the future. Before I could finish presenting the idea to the rest of the club, I casually mentioned how we could possibly even see a real launch. Much to my surprise, this idea suddenly became central.",
+      "We quickly coordinated a project to find launches we could attend that year. At first, I was quick to suggest attending a routine Starlink launch out of the Cape, which at this point was happening almost every day. However, scheduling quickly became an issue. SpaceX launches happened so fast it was hard to pinpoint dates or times for us to meet. We knew the day-long drive would need a much larger and more important launch to justify the time.",
+      "We knew of Artemis II and a couple of other launches scheduled for that year. At first, Artemis II’s date didn’t work for the group: other activities, projects, or tests were scheduled precisely on its launch date. Many of the other launches for the next months also conflicted with schedules or were changing too often. However, this would prove fortunate for us, as by spring of that year, we had been given a second chance at the Artemis II launch. It had been delayed twice, and its new schedule had perfectly aligned with the club’s, with April 1st being the launch date.",
+      "With this fortunate turn of events, combined with a progression in our launch tracking abilities, we were able to plan out the trip. This was amazing to us: our struggle to even find a launch had been met with the most important of the whole year. For context, Artemis II was set to be the first crewed flight to the Moon by NASA in 50 years!",
+      "We left early that April 1st morning, and, untrue to the holiday, the launch would not prank us that afternoon. As we arrived, we began to set up viewing equipment like telescopes and cameras. To our surprise, many people began to approach and ask to see through our equipment. One group had come from as far as India and told us their story, traveling all the way to America just to watch this launch. It was great meeting so many people and getting to share in our passion for the space frontier.",
+      "While I had never gotten to see a rocket in person before, I think meeting all those people who shared that common interest with us was the most important new perspective I gained.",
       tags: ["Rocketry", "EVENT", "INSPIRATION"],
       image: "Assets/Images/home/artemis-ii-1.jpg",
       video: "",
@@ -123,218 +123,6 @@ const FALLBACK_CONTENT = {
 
 window.FALLBACK_CONTENT = FALLBACK_CONTENT;
 window.siteContent = window.siteContent || FALLBACK_CONTENT;
-
-const content = window.siteContent || FALLBACK_CONTENT;
-
-function buildProjectLink(project) {
-  if (project && project.id) {
-    return `project.html?id=${encodeURIComponent(project.id)}`;
-  }
-  return project && project.link ? project.link : "#";
-}
-
-function createProjectCard(project) {
-  if (!project) return "";
-
-  const media = project.image
-    ? `<div class="project-media"><img src="${project.image}" alt="${project.title}" /></div>`
-    : "";
-
-  const tags = (project.tags || []).map((tag) => `<span class="tag">${tag}</span>`).join("");
-
-  const pdfButton = project.pdf
-    ? `<a class="secondary-button" href="${project.pdf}" target="_blank" rel="noreferrer">View PDF</a>`
-    : "";
-
-  const detailLink = buildProjectLink(project);
-  const primaryButton = project.id
-    ? `<a class="button" href="${detailLink}">More info</a>`
-    : `<a class="button" href="${project.link || "#"}" target="_blank" rel="noreferrer">Open</a>`;
-
-  return `
-    <article class="project-card">
-      ${media}
-      <div class="project-body">
-        <h3>${project.title}</h3>
-        <p>${project.summary}</p>
-        ${project.details ? `<p class="project-note">${project.details}</p>` : ""}
-        <div class="tag-row">${tags}</div>
-        <div class="project-actions">
-          ${primaryButton}
-          ${pdfButton}
-        </div>
-      </div>
-    </article>
-  `;
-}
-
-function getProjects() {
-  return Array.isArray(content.projects) ? content.projects : FALLBACK_CONTENT.projects;
-}
-
-function renderProjects() {
-  const target = document.querySelector("#projects-grid");
-  if (!target) return;
-
-  target.innerHTML = getProjects().map(createProjectCard).join("");
-}
-
-function renderFeaturedProjects() {
-  const target = document.querySelector("#featured-projects");
-  if (!target) return;
-
-  const featured = getProjects().slice(0, 3);
-  target.innerHTML = featured.map(createProjectCard).join("");
-}
-
-function renderAbout() {
-  const aboutData = content.about || FALLBACK_CONTENT.about;
-
-  const aboutTarget = document.querySelector("#about-copy");
-  if (aboutTarget) {
-    aboutTarget.textContent = aboutData.blurb;
-  }
-
-  const skillList = document.querySelector("#skills-list");
-  if (skillList) {
-    skillList.innerHTML = (aboutData.skills || []).map((skill) => `<li>${skill}</li>`).join("");
-  }
-
-  const homeAbout = document.querySelector("#home-about-copy");
-  if (homeAbout) {
-    homeAbout.textContent = aboutData.blurb;
-  }
-
-  const homeSkills = document.querySelector("#home-skills");
-  if (homeSkills) {
-    homeSkills.innerHTML = (aboutData.skills || []).map((skill) => `<li>${skill}</li>`).join("");
-  }
-}
-
-function renderContact() {
-  const contactData = content.contact || FALLBACK_CONTENT.contact;
-  const list = document.querySelector("#contact-list");
-  if (!list) return;
-
-  list.innerHTML = `
-    <li>Email: <a href="mailto:${contactData.email}">${contactData.email}</a></li>
-    <li>GitHub: <a href="${contactData.github}" target="_blank" rel="noreferrer">${contactData.github}</a></li>
-    <li>Location: ${contactData.location}</li>
-  `;
-}
-
-function isVideoSource(value) {
-  if (!value || typeof value !== "string") return false;
-
-  const trimmed = value.trim();
-  if (!trimmed) return false;
-
-  return /\.(mp4|webm|ogg|mov)(\?.*)?$/i.test(trimmed)
-    || /youtube\.com|youtu\.be|vimeo\.com/i.test(trimmed)
-    || /video/i.test(trimmed);
-}
-
-function renderMediaItem(item, projectTitle) {
-  const source = typeof item === "string" ? item : item?.src || "";
-  if (!source || !source.trim()) return "";
-
-  const label = projectTitle ? `${projectTitle} media` : "Project media";
-
-  if (isVideoSource(source)) {
-    return `<video class="gallery-video" src="${source}" controls playsinline aria-label="${label}"></video>`;
-  }
-
-  return `<img src="${source}" alt="${label}" />`;
-}
-
-function renderProjectDetail() {
-  const container = document.querySelector("#project-detail");
-  if (!container) return;
-
-  const params = new URLSearchParams(window.location.search);
-  const projectId = params.get("id");
-  const projects = getProjects();
-  const project = projects.find((item) => item.id === projectId) || projects[0];
-
-  if (!project) return;
-
-  const primaryMedia = project.video
-    ? `<div class="project-detail-media"><video src="${project.video}" controls playsinline aria-label="${project.title} video"></video></div>`
-    : project.image
-      ? `<div class="project-detail-media"><img src="${project.image}" alt="${project.title}" /></div>`
-      : "";
-
-  const tags = (project.tags || []).map((tag) => `<span class="tag">${tag}</span>`).join("");
-  const highlights = (project.highlights || []).map((item) => `<li>${item}</li>`).join("");
-  const gallery = (project.gallery || [])
-    .map((item) => renderMediaItem(item, project.title))
-    .filter(Boolean)
-    .join("");
-  const pdfLink = project.pdf
-    ? `<a class="button" href="${project.pdf}" target="_blank" rel="noreferrer">Open PDF</a>`
-    : "";
-  const externalLink = project.link
-    ? `<a class="secondary-button" href="${project.link}" target="_blank" rel="noreferrer">Open external link</a>`
-    : "";
-
-  container.innerHTML = `
-    <article class="detail-page-card">
-      <div class="detail-page-header">
-        <p class="eyebrow">Project detail</p>
-        <h1>${project.title}</h1>
-      </div>
-
-      ${primaryMedia}
-
-      <div class="detail-copy">
-        <p>${project.longDescription || project.summary}</p>
-        <div class="tag-row">${tags}</div>
-
-        <div class="project-actions detail-actions">
-          ${pdfLink}
-          ${externalLink}
-        </div>
-
-        ${highlights ? `<div class="detail-panel"><h3>Highlights</h3><ul class="feature-list">${highlights}</ul></div>` : ""}
-      </div>
-
-      ${gallery ? `<div class="gallery-grid">${gallery}</div>` : ""}
-    </article>
-  `;
-}
-
-function setupMobileNav() {
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navMenu = document.querySelector(".nav-menu");
-
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("open");
-    });
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  setupMobileNav();
-  renderProjects();
-  renderFeaturedProjects();
-  renderAbout();
-  renderContact();
-  renderProjectDetail();
-});
-
-window.siteContent = content;
-window.FALLBACK_CONTENT = FALLBACK_CONTENT;
-
-window.renderProjects = renderProjects;
-window.renderFeaturedProjects = renderFeaturedProjects;
-window.renderAbout = renderAbout;
-window.renderContact = renderContact;
-window.renderProjectDetail = renderProjectDetail;
-
-if (document.readyState !== "loading") {
-  setupMobileNav();
-  renderProjects();
   renderFeaturedProjects();
   renderAbout();
   renderContact();
