@@ -336,9 +336,23 @@ document.addEventListener("DOMContentLoaded", () => {
     setupGalleryBank();
   }
 
-  renderProjects();
-  renderFeaturedProjects();
-  renderAbout();
-  renderContact();
-  renderProjectDetail();
+  if (document.querySelector("#projects-grid")) {
+    renderProjects();
+  }
+
+  if (document.querySelector("#featured-projects")) {
+    renderFeaturedProjects();
+  }
+
+  if (document.querySelector("#about-copy") || document.querySelector("#home-about-copy")) {
+    renderAbout();
+  }
+
+  if (document.querySelector("#contact-list")) {
+    renderContact();
+  }
+
+  if (document.querySelector("#project-detail")) {
+    renderProjectDetail();
+  }
 });
