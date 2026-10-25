@@ -111,6 +111,29 @@ document.addEventListener("DOMContentLoaded", () => {
       || /video/i.test(trimmed);
   }
 
+  function normalizeProjectKey(value) {
+    return String(value || "")
+      .trim()
+      .toLowerCase()
+      .replace(/['"]/g, "")
+      .replace(/[^a-z0-9]+/g, "");
+  }
+
+  function findProjectBySelector(content, selector) {
+    const projects = Array.isArray(content.projects) ? content.projects : [];
+    if (!projects.length) return null;
+
+    const normalizedSelector = normalizeProjectKey(selector);
+    if (!normalizedSelector) return projects[0];
+
+    return (
+      projects.find((project) => normalizeProjectKey(project.id) === normalizedSelector)
+      || projects.find((project) => normalizeProjectKey(project.title) === normalizedSelector)
+      || projects.find((project) => normalizeProjectKey(project.summary) === normalizedSelector)
+      || projects[0]
+    );
+  }
+
   function renderGallerySlider(project) {
     const gallery = (project.gallery || []).filter((item) => {
       const source = typeof item === "string" ? item : item?.src || "";
@@ -280,17 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function renderProjectDetail() {
-    const container = document.querySelector("#project-detail");
-    if (!container) return;
-
-    const content = window.siteContent || window.FALLBACK_CONTENT || { projects: [] };
-    const params = new URLSearchParams(window.location.search);
-    const projectId = params.get("id");
-    const project = (Array.isArray(content.projects) ? content.projects : []).find((item) => item.id === projectId) || (Array.isArray(content.projects) ? content.projects[0] : null);
-
-    if (!project) return;
-
+  function buildProjectDetailMarkup(project, headingLabel = "Project detail") {
     const primaryMedia = project.video
       ? `<div class="project-detail-media"><video src="${project.video}" controls playsinline aria-label="${project.title} video"></video></div>`
       : project.image
@@ -308,10 +321,10 @@ document.addEventListener("DOMContentLoaded", () => {
       ? `<a class="secondary-button" href="${project.link}" target="_blank" rel="noreferrer">Open external link</a>`
       : "";
 
-    container.innerHTML = `
+    return `
       <article class="detail-page-card">
         <div class="detail-page-header">
-          <p class="eyebrow">Project detail</p>
+          <p class="eyebrow">${headingLabel}</p>
           <h1>${project.title}</h1>
         </div>
 
@@ -332,7 +345,34 @@ document.addEventListener("DOMContentLoaded", () => {
         ${galleryMarkup ? `${galleryMarkup}` : ""}
       </article>
     `;
+  }
 
+  function renderProjectDetail() {
+    const container = document.querySelector("#project-detail");
+    if (!container) return;
+
+    const content = window.siteContent || window.FALLBACK_CONTENT || { projects: [] };
+    const params = new URLSearchParams(window.location.search);
+    const projectId = params.get("id");
+    const project = findProjectBySelector(content, projectId) || (Array.isArray(content.projects) ? content.projects[0] : null);
+
+    if (!project) return;
+
+    container.innerHTML = buildProjectDetailMarkup(project, "Project detail");
+    setupGalleryBank();
+  }
+
+  function renderCurrentProject() {
+    const container = document.querySelector("#current-project-detail");
+    if (!container) return;
+
+    const content = window.siteContent || window.FALLBACK_CONTENT || { projects: [] };
+    const requestedId = container.dataset.projectId || "";
+    const project = findProjectBySelector(content, requestedId) || (Array.isArray(content.projects) ? content.projects[0] : null);
+
+    if (!project) return;
+
+    container.innerHTML = buildProjectDetailMarkup(project, "Current project");
     setupGalleryBank();
   }
 
@@ -354,5 +394,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (document.querySelector("#project-detail")) {
     renderProjectDetail();
+  }
+
+  if (document.querySelector("#current-project-detail")) {
+    renderCurrentProject();
   }
 });
