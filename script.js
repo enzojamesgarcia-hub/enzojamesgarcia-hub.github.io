@@ -126,8 +126,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const normalizedSelector = normalizeProjectKey(selector);
     if (!normalizedSelector) return projects[0];
 
+    const boxcarMatch = projects.find((project) => {
+      const haystack = [project.id, project.title, project.summary, project.details].join(" ");
+      return normalizeProjectKey(haystack).includes(normalizedSelector) || normalizedSelector.includes(normalizeProjectKey(project.id || ""));
+    });
+
     return (
-      projects.find((project) => normalizeProjectKey(project.id) === normalizedSelector)
+      boxcarMatch
+      || projects.find((project) => normalizeProjectKey(project.id) === normalizedSelector)
       || projects.find((project) => normalizeProjectKey(project.title) === normalizedSelector)
       || projects.find((project) => normalizeProjectKey(project.summary) === normalizedSelector)
       || projects[0]
@@ -367,10 +373,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!container) return;
 
     const content = window.siteContent || window.FALLBACK_CONTENT || { projects: [] };
-    const requestedId = container.dataset.projectId || "";
-    const project = findProjectBySelector(content, requestedId) || (Array.isArray(content.projects) ? content.projects[0] : null);
+    const requestedId = (container.dataset.projectId || "boxcar").trim();
+    const project = findProjectBySelector(content, requestedId) || (
+      Array.isArray(content.projects) ? content.projects.find((item) => {
+        const haystack = [item.id, item.title, item.summary].join(" ");
+        return /boxcar/i.test(haystack);
+      }) || content.projects[0] : null
+    );
 
-    if (!project) return;
+    if (!project) {
+      container.innerHTML = '<div class="detail-page-card"><div class="detail-page-header"><p class="eyebrow">Current project</p><h1>Boxcar</h1></div><p>Project data could not be loaded.</p></div>';
+      return;
+    }
 
     container.innerHTML = buildProjectDetailMarkup(project, "Current project");
     setupGalleryBank();
