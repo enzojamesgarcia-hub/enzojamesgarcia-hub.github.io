@@ -54,7 +54,7 @@ const FALLBACK_CONTENT = {
       title: "The 'Boxcar'",
       summary: "The 'Boxcar' is a multipurpose testbed aircraft for future projects and various payloads. Its first associated project will be a series of mounted cameras to locate and anaylze landed rockets.",
       details: "Innovating, Designing, and Developing my first fixed wing aircraft project.",
-      longDescription: "The idea for this project initially came from another, my first model rocket: Big Bertha. We frequently bring our other rockets to launch days so that if one fails, we can still watch our previous ones fly for fun. During our routine launches, we loved to launch our first rocket, Big Bertha."+
+      longDescription: "The idea for this project initially came from another, my first model rocket: Big Bertha. We frequently bring our other rockets to launch days so that if one fails, we can still watch our previous ones fly for fun. During our routine launches, we loved to launch our first rocket, Big Bertha." +
       "This time, however, we wanted to try the most powerful motor the design was meant to handle, a C6-5. That launch, Big Bertha soared higher than ever. We watched as her chute deployed and she began to descend, but she quickly drifted away from us, carried by the wind. She was heading toward a treeline that we knew opened into a field of bushes and trees. We started to chase her, eventually sprinting toward where we last spotted her. One of our members stopped and watched as she sank below the treeline."+
       "We must have spent the rest of that day searching for her, with no luck. We never saw her again."+
       "Later, as I reflected on our loss, I thought of ways to prevent this problem on our future, much larger projects. I knew we’d need a way to find our rockets quickly and effectively. The answer quickly became evident: we needed a drone. An aerial platform could give us a view of the surrounding terrain that we could never get from the ground, helping us locate our rockets and determine where they had landed."+
@@ -117,3 +117,5 @@ const FALLBACK_CONTENT = {
     location: "Miami, FL"
   }
 };
+window.FALLBACK_CONTENT = FALLBACK_CONTENT;
+window.siteContent = window.siteContent || FALLBACK_CONTENT;
