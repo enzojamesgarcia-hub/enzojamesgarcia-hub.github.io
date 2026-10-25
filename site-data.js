@@ -123,8 +123,3 @@ const FALLBACK_CONTENT = {
 
 window.FALLBACK_CONTENT = FALLBACK_CONTENT;
 window.siteContent = window.siteContent || FALLBACK_CONTENT;
-  renderFeaturedProjects();
-  renderAbout();
-  renderContact();
-  renderProjectDetail();
-}
