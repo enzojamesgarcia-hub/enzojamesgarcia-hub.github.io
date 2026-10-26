@@ -61,7 +61,7 @@ const FALLBACK_CONTENT = {
       "But as we began considering how to make this idea a reality, I saw an opportunity to do more than simply build a flying camera. I wanted something that could serve as a foundation for future projects: a reliable, reusable aircraft capable of carrying different payloads and supporting a variety of experiments. Rather than build a drone dedicated solely to rocket recovery, we decided to design a multipurpose RC aircraft that could adapt to whatever challenges we pursued next. Its first mission would be to help us find our rockets, but its potential applications would extend far beyond the launch field."+
       "I decided to make this project my focus over that summer and carry it into the school year.",
       tags: ["AIRCRAFT", "DESIGN&DEVELOPMENT", "AEROSPACE CLUB"],
-      image: "",
+      image: "Assets/Images/home/boxcar/BOXCAR.jpg",
       video: "",
       pdf: "",
       link: "",
