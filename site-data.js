@@ -66,7 +66,13 @@ const FALLBACK_CONTENT = {
       pdf: "",
       link: "",
       highlights: ["Interactive layout", "Flexible content updates", "User-friendly presentation"],
-      gallery: []
+      gallery: ["Assets/Images/home/boxcar/motormount-foam.jpeg",
+               "Assets/Images/home/boxcar/motor-mount-firstcuts.jpeg",
+                "Assets/Images/home/boxcar/foam-wing assembly.jpeg",
+                "Assets/Images/home/boxcar/first-foamcoveredwing.jpeg",
+                "Assets/Images/home/boxcar/first-foam-assembly.jpeg",
+                "Assets/Images/home/boxcar/earlymotor-mount-assembly.jpg"
+               ]
     },
     {
       id: "ARC Rocket-1",
