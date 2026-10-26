@@ -30,7 +30,7 @@ const FALLBACK_CONTENT = {
       "With this fortunate turn of events, combined with a progression in our launch tracking abilities, we were able to plan out the trip. This was amazing to us: our struggle to even find a launch had been met with the most important of the whole year. For context, Artemis II was set to be the first crewed flight to the Moon by NASA in 50 years!"+
       "We left early that April 1st morning, and, untrue to the holiday, the launch would not prank us that afternoon. As we arrived, we began to set up viewing equipment like telescopes and cameras. To our surprise, many people began to approach and ask to see through our equipment. One group had come from as far as India and told us their story, traveling all the way to America just to watch this launch. It was great meeting so many people and getting to share in our passion for the space frontier."+
       "While I had never gotten to see a rocket in person before, I think meeting all those people who shared that common interest with us was the most important new perspective I gained.",
-      tags: ["Rocketry", "EVENT", "INSPIRATION"],
+      tags: ["ROCKETRY", "EVENT", "INSPIRATION"],
       image: "Assets/Images/home/artemis-ii-1.jpg",
       video: "",
       pdf: "",
@@ -81,17 +81,17 @@ const FALLBACK_CONTENT = {
       details: "My first ever competition rocket, developed alongside the members of the Belen Aerospace club, and how we learned from it.",
       longDescription: "Coming soon...",
       tags: ["ROCKETRY", "DESIGN&DEVELOPMENT", "AEROSPACE CLUB"],
-      image: "",
+      image: "Assets/Images/home/ARC-1/COOL PICTURE.jpeg",
       video: "",
       pdf: "",
       link: "",
       highlights: ["Competition Rocket", "Learning Experience"],
-      gallery: []
+      gallery: ["Assets/Images/home/ARC-1/COOL PICTURE.jpeg","Assets/Images/home/ARC-1/SETUP.jpeg","Assets/Images/home/ARC-1/WhatsApp Image 2026-03-08 at"]
     },
     {
       id: "L1 Rocket",
       title: "Designing an L1 Rocket with the Belen Aerospace Club(Active Project)",
-      summary: "My role in the process of designing and developing our first L1 Rockets. A collaborative design between the club, these rockets will allow ",
+      summary: "My role in the process of designing and developing our first L1 Rockets. A collaborative design between the Belen Aerospace Club, this project will allow a common source design for members to build and improve L1 rockets from.",
       details: "Working with other members of the Belen Aerospace Club to design and make our first L1 Rockets for certifcation.",
       longDescription: "Coming soon...",
       tags: ["ROCKETRY", "AEROSPACE CLUB", "CERTIFICATION"],
@@ -109,7 +109,7 @@ const FALLBACK_CONTENT = {
       details: "Learning how to build rockets with the Belen Aerospace Club.",
       longDescription: "Coming soon...",
       tags: ["ROCKETRY", "EXPERIENCE", "FIRST STEPS"],
-      image: "",
+      image: "Trinity-LOL.jpeg",
       video: "",
       pdf: "",
       link: "",
