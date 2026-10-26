@@ -65,7 +65,7 @@ const FALLBACK_CONTENT = {
       video: "",
       pdf: "",
       link: "",
-      highlights: ["Interactive layout", "Flexible content updates", "User-friendly presentation"],
+      highlights: ["Manufacuring Experience", "Detailed Design", "Activce Project"],
       gallery: ["Assets/Images/home/boxcar/motormount-foam.jpeg",
                "Assets/Images/home/boxcar/motor-mount-firstcuts.jpeg",
                 "Assets/Images/home/boxcar/foam-wing assembly.jpeg",
@@ -80,12 +80,12 @@ const FALLBACK_CONTENT = {
       summary: "'Bigger Bertha' or ARC Rocket-1 was my first ever competitive rocket, along side the Belen Aerospace club's aswell. using our previous experience from our earlier rockets, we sought to make our first competitive rocket.",
       details: "My first ever competition rocket, developed alongside the members of the Belen Aerospace club, and how we learned from it.",
       longDescription: "Coming soon...",
-      tags: ["Portfolio", "HTML", "Presentation"],
+      tags: ["ROCKETRY", "DESIGN&DEVELOPMENT", "AEROSPACE CLUB"],
       image: "",
       video: "",
       pdf: "",
       link: "",
-      highlights: ["Presentation layout", "Supports media and text", "Great for class projects"],
+      highlights: ["Competition Rocket", "Learning Experience"],
       gallery: []
     },
     {
@@ -94,12 +94,12 @@ const FALLBACK_CONTENT = {
       summary: "My role in the process of designing and developing our first L1 Rockets. A collaborative design between the club, these rockets will allow ",
       details: "Working with other members of the Belen Aerospace Club to design and make our first L1 Rockets for certifcation.",
       longDescription: "Coming soon...",
-      tags: ["Portfolio", "HTML", "Presentation"],
+      tags: ["ROCKETRY", "AEROSPACE CLUB", "CERTIFICATION"],
       image: "",
       video: "",
       pdf: "",
       link: "",
-      highlights: ["Presentation layout", "Supports media and text", "Great for class projects"],
+      highlights: ["Collaborative Project", "Largest Rocket Project Yet", "Active Project"],
       gallery: []
     },
      {
@@ -108,12 +108,12 @@ const FALLBACK_CONTENT = {
       summary: "A general page for my earliest rockets with the Belen Aerospace club, and how they prepared us for the future. These early rockets would help develop our skills and knowledge for our later and current projects.",
       details: "Learning how to build rockets with the Belen Aerospace Club.",
       longDescription: "Coming soon...",
-      tags: ["Portfolio", "HTML", "Presentation"],
+      tags: ["ROCKETRY", "EXPERIENCE", "FIRST STEPS"],
       image: "",
       video: "",
       pdf: "",
       link: "",
-      highlights: ["Presentation layout", "Supports media and text", "Great for class projects"],
+      highlights: ["", "", ""],
       gallery: []
     }
   ],
