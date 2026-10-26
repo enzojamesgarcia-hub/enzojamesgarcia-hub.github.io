@@ -109,12 +109,12 @@ const FALLBACK_CONTENT = {
       details: "Learning how to build rockets with the Belen Aerospace Club.",
       longDescription: "Coming soon...",
       tags: ["ROCKETRY", "EXPERIENCE", "FIRST STEPS"],
-      image: "Assets/Images/home/EarlyRockets/WhatsApp Image 2026-03-07 at 2.5.jpeg",
+      image: "Assets/Images/home/EarlyRockets/WhatsApp Image 2026-03-07 at 2.58.05 PM.jpeg",
       video: "",
       pdf: "",
       link: "",
       highlights: ["", "", ""],
-      gallery: ["Assets/Images/home/EarlyRockets/WhatsApp Image 2026-03-07 at 2.5","Assets/Images/home/EarlyRockets/trinity-1.jpeg"]
+      gallery: ["Assets/Images/home/EarlyRockets/WhatsApp Image 2026-03-07 at 2.58.05 PM.jpeg","Assets/Images/home/EarlyRockets/trinity-1.jpeg"]
     }
   ],
   contact: {
