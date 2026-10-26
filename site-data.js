@@ -71,7 +71,7 @@ const FALLBACK_CONTENT = {
                 "Assets/Images/home/boxcar/foam-wing assembly.jpeg",
                 "Assets/Images/home/boxcar/first-foamcoveredwing.jpeg",
                 "Assets/Images/home/boxcar/first-foam-assembly.jpeg",
-                "Assets/Images/home/boxcar/earlymotor-mount-assembly.jpg"
+                "Assets/Images/home/boxcar/earlymotor-mount-assembly.jpeg"
                ]
     },
     {
