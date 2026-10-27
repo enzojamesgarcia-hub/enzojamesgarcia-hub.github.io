@@ -98,7 +98,7 @@ const FALLBACK_CONTENT = {
       details: "Working with other members of the Belen Aerospace Club to design and make our first L1 Rockets for certifcation.",
       longDescription: "Coming soon...",
       tags: ["ROCKETRY", "AEROSPACE CLUB", "CERTIFICATION"],
-      image: "",
+      image: "Assets/Images/home/L1/WhatsApp Image 2026-06-14 at 6.43.44 PM.jpeg",
       video: "",
       pdf: "",
       link: "",
