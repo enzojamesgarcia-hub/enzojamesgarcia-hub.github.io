@@ -59,7 +59,10 @@ const FALLBACK_CONTENT = {
       "We must have spent the rest of that day searching for her, with no luck. We never saw her again. "+
       "Later, as I reflected on our loss, I thought of ways to prevent this problem on our future, much larger projects. I knew we’d need a way to find our rockets quickly and effectively. The answer quickly became evident: we needed a drone. An aerial platform could give us a view of the surrounding terrain that we could never get from the ground, helping us locate our rockets and determine where they had landed. "+
       "But as we began considering how to make this idea a reality, I saw an opportunity to do more than simply build a flying camera. I wanted something that could serve as a foundation for future projects: a reliable, reusable aircraft capable of carrying different payloads and supporting a variety of experiments. Rather than build a drone dedicated solely to rocket recovery, we decided to design a multipurpose RC aircraft that could adapt to whatever challenges we pursued next. Its first mission would be to help us find our rockets, but its potential applications would extend far beyond the launch field. "+
-      "I decided to make this project my focus over that summer and carry it into the school year. ",
+      "<p><strong>How It's Going:</strong>.</p>"+
+      "<p>Coming soon:(10/27/26)</p>",
+      `
+
       tags: ["AIRCRAFT", "DESIGN&DEVELOPMENT", "AEROSPACE CLUB"],
       image: "Assets/Images/home/boxcar/BOXCAR.jpg",
       video: "",
