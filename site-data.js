@@ -86,7 +86,7 @@ const FALLBACK_CONTENT = {
       pdf: "",
       link: "",
       highlights: ["Competition Rocket", "Learning Experience"],
-      gallery: ["Assets/Images/home/ARC-1/COOL PICTURE.jpeg","Assets/Images/home/ARC-1/SETUP.jpeg","Assets/Images/home/ARC-1/WhatsApp Image 2026-03-08 at"]
+      gallery: ["Assets/Images/home/ARC-1/COOL PICTURE.jpeg","Assets/Images/home/ARC-1/SETUP.jpeg","Assets/Images/home/ARC-1/WhatsApp Image 2026-03-08 at 8.36.33 AM.jpeg"]
     },
     {
       id: "L1 Rocket",
