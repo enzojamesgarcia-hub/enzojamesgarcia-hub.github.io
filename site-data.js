@@ -51,7 +51,7 @@ const FALLBACK_CONTENT = {
     },
     {
       id: "BOXCAR'",
-      title: "The 'Boxcar'",
+      title: "The 'Boxcar'(IN DEVELOPMENT)",
       summary: "The 'Boxcar' is a multipurpose testbed aircraft for future projects and various payloads. Its first associated project will be a series of mounted cameras to locate and anaylze landed rockets.",
       details: "Innovating, Designing, and Developing my first fixed wing aircraft project.",
       longDescription: "The idea for this project initially came from another, my first model rocket: Big Bertha. We frequently bring our other rockets to launch days so that if one fails, we can still watch our previous ones fly for fun. During our routine launches, we loved to launch our first rocket, Big Bertha. " +
@@ -59,9 +59,9 @@ const FALLBACK_CONTENT = {
       "We must have spent the rest of that day searching for her, with no luck. We never saw her again. "+
       "Later, as I reflected on our loss, I thought of ways to prevent this problem on our future, much larger projects. I knew we’d need a way to find our rockets quickly and effectively. The answer quickly became evident: we needed a drone. An aerial platform could give us a view of the surrounding terrain that we could never get from the ground, helping us locate our rockets and determine where they had landed. "+
       "But as we began considering how to make this idea a reality, I saw an opportunity to do more than simply build a flying camera. I wanted something that could serve as a foundation for future projects: a reliable, reusable aircraft capable of carrying different payloads and supporting a variety of experiments. Rather than build a drone dedicated solely to rocket recovery, we decided to design a multipurpose RC aircraft that could adapt to whatever challenges we pursued next. Its first mission would be to help us find our rockets, but its potential applications would extend far beyond the launch field. "+
-      "<p><strong>How It's Going:</strong>.</p>"+
-      "<p>Coming soon:(10/27/26)</p>",
-
+      "<p><strong>Early Design and Development:</strong>.</p>"+
+      "<p>From very early on, I knew that I wanted this vehicle to be an easily usable, repairable, and flyable aircraft. I therefore focused primarily on simplicity, modularity, and practicality. I started the design around its thrust as I knew the type of motor(s) it flew on would be the basis for much of the rest of design.-thrust to weight ratio determines everything-I already knew I’d need quite a lot of thrust to account for the payload carrying capacity I wanted, which I wanted to set at a high maximum of 5lbs when optimal, although anything over 1lb would be acceptable this early on. I also knew that stability would be critical to ensure that even while carrying a payload the plane could be reasonably stable in flight, and wouldn’t be difficult to use for projects. It’s because of this I chose to go with two motors, as they allow for thrust vector control-increasing thrust of one motor to steer) and I figured that as I optimized the design, having the dual motor capability would allow more complex configurations. However, thrust vector control is not without its own drawbacks, particularly requiring a flight controller to be effective. It’s not that much of a drawback though, as I am more than happy to learn about electronics for this project, and it is a particular goal of mine for this project. Among this conclusion I also saw benefit in the modular nature of two motors separate from the fuselage and decided to expand on this into a design that is very similar to the famed P-38 or a C-119 ‘flying boxcar.’ Which I cannot confirm nor deny has influenced my naming of this project. I particularly chose the twin boon-twin motor setup because of the modular ability of it, which I would take full advantage of using pulled carbon-fiber spars. The idea behind the spars is based on the awesome strength and lightweight of carbon fiber, which will allow for the boons and tail to be an assembly of the spars with simple foam control surfaces(fins that move to steer) attahced. I would also use the spars to divide up the design, particularly into 3 sections: The main Fuselage or ‘Boxcar’, the wings, and the boons/tail. The wings would be attached directly to a spar that ran parallel through them, providing structure and connectivity. I would use the spars in the wing to act as attachment/connection points for the fuselage, while the tail boom spars would connect to attachment slots in the motormounts, positioned under the wing. I knew that by allowing for the removal of each part individually, parts could be preserved or upgraded while maintaining a ready assembly to fly. This way if one part broke, a simple replacement would be all that was necessary for repair. It would also allow for improvement of the design later on.</p>",
+      "<p><strong>CAD:(a lot to write about, in progress...)</strong>.</p>",
       tags: ["AIRCRAFT", "DESIGN&DEVELOPMENT", "AEROSPACE CLUB"],
       image: "Assets/Images/home/boxcar/BOXCAR.jpg",
       video: "",
@@ -109,7 +109,7 @@ const FALLBACK_CONTENT = {
       title: "Early Rockets",
       summary: "A general page for my earliest rockets with the Belen Aerospace club, and how they prepared us for the future. These early rockets would help develop our skills and knowledge for our later and current projects.",
       details: "Learning how to build rockets with the Belen Aerospace Club.",
-      longDescription: "Coming soon...",
+      longDescription: "Coming soon",
       tags: ["ROCKETRY", "EXPERIENCE", "FIRST STEPS"],
       image: "Assets/Images/home/EarlyRockets/WhatsApp Image 2026-03-07 at 2.58.05 PM.jpeg",
       video: "",
