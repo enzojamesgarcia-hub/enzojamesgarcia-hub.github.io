@@ -102,7 +102,7 @@ const FALLBACK_CONTENT = {
       pdf: "",
       link: "",
       highlights: ["Collaborative Project", "Largest Rocket Project Yet", "Active Project"],
-      gallery: ["L!(!)jpeg","dixie.jpeg","Land.jpeg"]
+      gallery: ["Assets/Images/home/L1/L!(!)jpeg","Assets/Images/home/L1/dixie.jpeg","Assets/Images/home/L1/Land.jpeg"]
     },
      {
       id: "Early Rockets",
