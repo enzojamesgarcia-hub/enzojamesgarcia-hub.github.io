@@ -8,6 +8,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const contactForm = document.querySelector("#contact-form");
+  const contactStatus = document.querySelector("#contact-status");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(contactForm);
+      const name = String(formData.get("name") || "").trim();
+      const email = String(formData.get("email") || "").trim();
+      const message = String(formData.get("message") || "").trim();
+
+      if (!name || !email || !message) {
+        if (contactStatus) {
+          contactStatus.textContent = "Please fill in your name, email, and message before sending.";
+          contactStatus.style.color = "#b91c1c";
+        }
+        return;
+      }
+
+      const subject = `Portfolio inquiry from ${name}`;
+      const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+      const mailtoLink = `mailto:ejgarcia@belenwolverines.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      if (contactStatus) {
+        contactStatus.textContent = "Opening your email app...";
+        contactStatus.style.color = "#14532d";
+      }
+
+      window.location.href = mailtoLink;
+      contactForm.reset();
+    });
+  }
+
   function buildProjectLink(project) {
     if (project.id) {
       return `project.html?id=${encodeURIComponent(project.id)}`;
